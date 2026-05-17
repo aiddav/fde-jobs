@@ -4,9 +4,11 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 
 const site = process.env.SITE_URL ?? "https://aiddav.github.io/fde-jobs";
+const sitePath = new URL(site).pathname.replace(/\/$/, "");
 
 export default defineConfig({
   site,
+  base: sitePath && sitePath !== "/" ? sitePath : "/",
   output: "static",
   integrations: [preact(), sitemap()],
   vite: {
