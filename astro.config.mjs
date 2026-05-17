@@ -3,7 +3,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 
-const site = process.env.SITE_URL ?? "https://aiddav.github.io/fde-jobs";
+const site = process.env.SITE_URL ?? "http://localhost:4321";
 const sitePath = new URL(site).pathname.replace(/\/$/, "");
 
 export default defineConfig({

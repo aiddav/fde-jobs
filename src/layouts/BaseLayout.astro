@@ -2,7 +2,7 @@
 import ThemeToggle from "../components/ThemeToggle";
 import Ticker from "../components/Ticker.astro";
 import "../styles/globals.css";
-import type { PostingStats, TickerItem } from "../lib/types";
+import type { MarketStats, PostingStats, TickerItem } from "../lib/types";
 
 type Props = {
   title?: string;
@@ -10,6 +10,7 @@ type Props = {
   tickerItems?: TickerItem[];
   openRoleCount?: number;
   addedThisWeek?: number;
+  marketStats?: MarketStats;
   postingStats?: PostingStats;
   ogImage?: string;
 };
@@ -20,6 +21,7 @@ const {
   tickerItems = [],
   openRoleCount = 0,
   addedThisWeek = 0,
+  marketStats,
   postingStats,
   ogImage
 } = Astro.props;
@@ -65,7 +67,7 @@ const canonical = new URL(canonicalPath, siteBase).toString();
     }
   </head>
   <body>
-    <Ticker items={tickerItems} openRoleCount={openRoleCount} addedThisWeek={addedThisWeek} postingStats={postingStats} />
+    <Ticker items={tickerItems} openRoleCount={openRoleCount} addedThisWeek={addedThisWeek} marketStats={marketStats} postingStats={postingStats} />
     <slot />
     <footer class="site-shell footer">
       <div class="footer-inner">

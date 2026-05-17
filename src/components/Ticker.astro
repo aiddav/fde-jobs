@@ -1,15 +1,16 @@
 ---
-import type { PostingStats, TickerItem } from "../lib/types";
+import type { MarketStats, PostingStats, TickerItem } from "../lib/types";
 
 type Props = {
   items: TickerItem[];
   openRoleCount: number;
   addedThisWeek: number;
+  marketStats?: MarketStats;
   postingStats?: PostingStats;
 };
 
-const { items, openRoleCount, addedThisWeek, postingStats } = Astro.props;
-const change = postingStats?.momChangePct;
+const { items, openRoleCount, addedThisWeek, marketStats, postingStats } = Astro.props;
+const change = marketStats?.mom_change_pct ?? postingStats?.momChangePct;
 const changeClass = change === null || change === undefined || change === 0 ? "neutral" : change > 0 ? "positive" : "negative";
 const changeText = change === null || change === undefined
   ? "MOM N/A"
@@ -17,10 +18,12 @@ const changeText = change === null || change === undefined
 const computed = [
   {
     label: "STAT",
-    text: postingStats
-      ? `${postingStats.totalEstimate} EST. FDE POSTINGS · ${postingStats.currentMonthLabel} ${changeText}`
+    text: marketStats
+      ? `${marketStats.postings_count} FDE JOB DESCRIPTIONS ON INDEED · ${marketStats.current_period.toUpperCase()} ${changeText}`
+      : postingStats
+        ? `${postingStats.totalEstimate} EST. FDE POSTINGS · ${postingStats.currentMonthLabel} ${changeText}`
       : `${openRoleCount} OPEN FDE ROLES · ${addedThisWeek} ADDED THIS WEEK`,
-    url: null,
+    url: marketStats?.source_url ?? null,
     changeClass
   },
   {

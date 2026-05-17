@@ -1,13 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import FilterRail from "../components/FilterRail";
-import { getCompanies, getJobs, getTickerItems } from "../lib/data";
+import { getCompanies, getJobs, getMarketStats, getTickerItems } from "../lib/data";
 import { countAddedThisWeek, enrichJobs, postingStats } from "../lib/filters";
 
 const companies = getCompanies();
 const jobs = getJobs();
 const liveJobs = enrichJobs(jobs, companies);
 const tickerItems = getTickerItems();
+const marketStats = getMarketStats();
 const addedThisWeek = countAddedThisWeek(jobs);
 const stats = postingStats(jobs);
 ---
@@ -17,6 +18,7 @@ const stats = postingStats(jobs);
   tickerItems={tickerItems}
   openRoleCount={liveJobs.length}
   addedThisWeek={addedThisWeek}
+  marketStats={marketStats}
   postingStats={stats}
 >
   <section class="site-shell">

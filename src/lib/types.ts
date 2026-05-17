@@ -4,6 +4,7 @@ export type {
   Job,
   JobStatus,
   LocationType,
+  MarketStats,
   RoleFamily,
   Stage,
   TickerItem,

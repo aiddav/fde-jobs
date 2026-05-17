@@ -121,6 +121,17 @@ export const tickerItemSchema = z.object({
   is_pinned: z.boolean()
 });
 
+export const marketStatsSchema = z.object({
+  source: z.literal("indeed_jd_tracker"),
+  source_label: z.string().min(1),
+  source_url: z.string().url(),
+  current_period: z.string().min(1),
+  postings_count: z.number().int().nonnegative(),
+  mom_change_pct: z.number().int().nullable(),
+  updated_at: isoDateString,
+  notes: z.string().nullable()
+});
+
 export const companiesSchema = z.array(companySchema);
 export const jobsSchema = z.array(jobSchema);
 export const tickerSchema = z.array(tickerItemSchema);
@@ -128,6 +139,7 @@ export const tickerSchema = z.array(tickerItemSchema);
 export type Company = z.infer<typeof companySchema>;
 export type Job = z.infer<typeof jobSchema>;
 export type TickerItem = z.infer<typeof tickerItemSchema>;
+export type MarketStats = z.infer<typeof marketStatsSchema>;
 export type Stage = z.infer<typeof stageSchema>;
 export type RoleFamily = z.infer<typeof roleFamilySchema>;
 export type LocationType = z.infer<typeof locationTypeSchema>;

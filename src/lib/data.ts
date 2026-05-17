@@ -1,8 +1,9 @@
 import companiesJson from "../content/data/companies.json";
 import jobsJson from "../content/data/jobs.json";
+import marketJson from "../content/data/market.json";
 import tickerJson from "../content/data/ticker.json";
-import { companiesSchema, jobsSchema, tickerSchema } from "./schema";
-import type { Company, Job, TickerItem } from "./types";
+import { companiesSchema, jobsSchema, marketStatsSchema, tickerSchema } from "./schema";
+import type { Company, Job, MarketStats, TickerItem } from "./types";
 
 export function getCompanies(): Company[] {
   return companiesSchema.parse(companiesJson).sort((a, b) => a.name.localeCompare(b.name));
@@ -22,6 +23,10 @@ export function getTickerItems(): TickerItem[] {
       }
       return b.published_at.localeCompare(a.published_at);
     });
+}
+
+export function getMarketStats(): MarketStats {
+  return marketStatsSchema.parse(marketJson);
 }
 
 export function companyMap(companies: Company[]) {

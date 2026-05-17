@@ -251,6 +251,24 @@ function FilterControls({
   );
 }
 
+function companyInitials(name: string) {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+}
+
+function CompanyLogo({ company }: { company: Company }) {
+  return (
+    <span class="company-logo" aria-hidden="true">
+      {company.logo_url ? <img src={company.logo_url} alt="" loading="lazy" /> : <span>{companyInitials(company.name)}</span>}
+    </span>
+  );
+}
+
 function JobRow({ job }: { job: JobWithCompany }) {
   const tags = job.company.industry_tags.slice(0, 2);
   const overflow = job.company.industry_tags.length - tags.length;
@@ -258,9 +276,10 @@ function JobRow({ job }: { job: JobWithCompany }) {
   const newlyPosted = isNew(job.posted_at);
 
   return (
-    <a class="job-row" href={`/j/${job.slug}/`}>
+    <a class="job-row" href={job.apply_url} target="_blank" rel="noopener noreferrer">
       <div class="job-row-main">
-        <div>
+        <div class="job-company-cell">
+          <CompanyLogo company={job.company} />
           <div class="job-company-line">
             <span class="job-company-name">{job.company.name}</span>
             <span class="chip stage">{stageLabel(job.company.stage)}</span>
@@ -322,7 +341,7 @@ export default function FilterRail({ jobs, companies, addedThisWeek }: Props) {
     <div>
       <div class="page-head">
         <div class="eyebrow">Forward deployed engineering roles</div>
-        <h1 class="page-title">forward deployed: the fastest growing job in tech</h1>
+        <h1 class="page-title">the fastest growing job in tech</h1>
         <p class="page-subhead">
           <span class="mono">{filteredJobs.length} of {jobs.length} roles · {addedThisWeek} added this week</span>
         </p>

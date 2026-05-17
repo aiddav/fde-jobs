@@ -464,6 +464,36 @@ img {
   font-size: 0.8125rem;
 }
 
+.job-company-cell {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+}
+
+.company-logo {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  overflow: hidden;
+  place-items: center;
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.company-logo img {
+  width: 100%;
+  height: 100%;
+  padding: 3px;
+  object-fit: contain;
+}
+
 .job-company-name {
   overflow: hidden;
   color: var(--ink);

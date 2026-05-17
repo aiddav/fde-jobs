@@ -1,0 +1,10 @@
+{
+  "source": "indeed_jd_tracker",
+  "source_label": "Indeed JD tracker",
+  "source_url": "https://www.indeed.com/jobs?q=%22forward+deployed%22+engineer",
+  "current_period": "Sep 2025",
+  "postings_count": 48,
+  "mom_change_pct": 23,
+  "updated_at": "2026-05-17T00:00:00.000Z",
+  "notes": "Hand-maintained benchmark based on tracking forward-deployed engineer job descriptions on Indeed-style monthly analysis; do not scrape Indeed from the static site."
+}

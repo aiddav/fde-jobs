@@ -1,9 +1,10 @@
-import { companiesSchema, jobsSchema, tickerSchema } from "../src/lib/schema";
+import { companiesSchema, jobsSchema, marketStatsSchema, tickerSchema } from "../src/lib/schema";
 import { readJson } from "./io";
 
 const companies = companiesSchema.parse(await readJson("src/content/data/companies.json", []));
 const jobs = jobsSchema.parse(await readJson("src/content/data/jobs.json", []));
 const ticker = tickerSchema.parse(await readJson("src/content/data/ticker.json", []));
+marketStatsSchema.parse(await readJson("src/content/data/market.json", {}));
 
 function assertUnique(values: string[], label: string) {
   const seen = new Set<string>();
@@ -36,4 +37,4 @@ if (badTicker.length > 0) {
   throw new Error(`Ticker items expire before publication: ${badTicker.map((item) => item.id).join(", ")}`);
 }
 
-console.log(`Validated ${companies.length} companies, ${jobs.length} jobs, ${ticker.length} ticker items.`);
+console.log(`Validated ${companies.length} companies, ${jobs.length} jobs, ${ticker.length} ticker items, and market stats.`);
