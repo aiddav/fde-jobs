@@ -1,0 +1,17 @@
+name: Remove or correct a job
+description: Request a correction or removal
+title: "Removal/correction: "
+labels: ["removal"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: FDE Jobs URL
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Request
+    validations:
+      required: true

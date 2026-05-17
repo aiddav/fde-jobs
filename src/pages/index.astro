@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FilterRail from "../components/FilterRail";
+import { getCompanies, getJobs, getTickerItems } from "../lib/data";
+import { countAddedThisWeek, enrichJobs, postingStats } from "../lib/filters";
+
+const companies = getCompanies();
+const jobs = getJobs();
+const liveJobs = enrichJobs(jobs, companies);
+const tickerItems = getTickerItems();
+const addedThisWeek = countAddedThisWeek(jobs);
+const stats = postingStats(jobs);
+---
+
+<BaseLayout
+  title="FDE Jobs · Forward Deployed Engineer Roles"
+  tickerItems={tickerItems}
+  openRoleCount={liveJobs.length}
+  addedThisWeek={addedThisWeek}
+  postingStats={stats}
+>
+  <section class="site-shell">
+    <FilterRail client:load jobs={liveJobs} companies={companies} addedThisWeek={addedThisWeek} />
+  </section>
+</BaseLayout>

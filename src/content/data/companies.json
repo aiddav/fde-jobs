@@ -1,0 +1,3202 @@
+[
+  {
+    "slug": "abridge",
+    "name": "Abridge",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "vertical ai",
+      "regulated"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "adept",
+    "name": "Adept",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "frontier ai",
+      "research"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "adyen",
+    "name": "Adyen",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "fintech",
+      "operations"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "ai21-labs",
+    "name": "AI21 Labs",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "frontier ai",
+      "research"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "airtable-ai",
+    "name": "Airtable AI",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "airwallex",
+    "name": "Airwallex",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "fintech",
+      "operations"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "ambience-healthcare",
+    "name": "Ambience Healthcare",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "vertical ai",
+      "regulated"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "anduril",
+    "name": "Anduril",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "defense",
+      "dual-use"
+    ],
+    "ats_provider": "greenhouse",
+    "ats_slug": "andurilindustries",
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "anthropic",
+    "name": "Anthropic",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "frontier ai",
+      "research"
+    ],
+    "ats_provider": "greenhouse",
+    "ats_slug": "anthropic",
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "anyscale",
+    "name": "Anyscale",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "anysphere-health",
+    "name": "Anysphere Health",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "vertical ai",
+      "regulated"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "applied-intuition",
+    "name": "Applied Intuition",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "defense",
+      "dual-use"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "baseten",
+    "name": "Baseten",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": "ashby",
+    "ats_slug": "baseten",
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "brex",
+    "name": "Brex",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "fintech",
+      "operations"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "casetext",
+    "name": "Casetext",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "vertical ai",
+      "regulated"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "chroma",
+    "name": "Chroma",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "codeium",
+    "name": "Codeium",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "cognition",
+    "name": "Cognition",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "cohere",
+    "name": "Cohere",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "frontier ai",
+      "research"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "cresta",
+    "name": "Cresta",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "cursor",
+    "name": "Cursor",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": "ashby",
+    "ats_slug": "cursor",
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "databricks",
+    "name": "Databricks",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": "greenhouse",
+    "ats_slug": "databricks",
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "dbt-labs",
+    "name": "dbt Labs",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "decagon",
+    "name": "Decagon",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": "ashby",
+    "ats_slug": "decagon",
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "epirus",
+    "name": "Epirus",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "defense",
+      "dual-use"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "evenup",
+    "name": "EvenUp",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "vertical ai",
+      "regulated"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "factory",
+    "name": "Factory",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "fireworks-ai",
+    "name": "Fireworks AI",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": "greenhouse",
+    "ats_slug": "fireworksai",
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "fivetran",
+    "name": "Fivetran",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "forterra",
+    "name": "Forterra",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "defense",
+      "dual-use"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "glean",
+    "name": "Glean",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": "greenhouse",
+    "ats_slug": "gleanwork",
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "google-deepmind",
+    "name": "Google DeepMind",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "frontier ai",
+      "research"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "hadrian",
+    "name": "Hadrian",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "defense",
+      "dual-use"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "harvey",
+    "name": "Harvey",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": "ashby",
+    "ats_slug": "harvey",
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "hebbia",
+    "name": "Hebbia",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "helsing",
+    "name": "Helsing",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "defense",
+      "dual-use"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "hippocratic-ai",
+    "name": "Hippocratic AI",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "vertical ai",
+      "regulated"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "imbue",
+    "name": "Imbue",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "langchain",
+    "name": "LangChain",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "lightning-ai",
+    "name": "Lightning AI",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "lindy",
+    "name": "Lindy",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "magic",
+    "name": "Magic",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "mem",
+    "name": "Mem",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "mercury",
+    "name": "Mercury",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "fintech",
+      "operations"
+    ],
+    "ats_provider": "greenhouse",
+    "ats_slug": "mercury",
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "mistral-ai",
+    "name": "Mistral AI",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "frontier ai",
+      "research"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "modal",
+    "name": "Modal",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": "ashby",
+    "ats_slug": "modal",
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "modern-treasury",
+    "name": "Modern Treasury",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "fintech",
+      "operations"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "motherduck",
+    "name": "MotherDuck",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "nabla",
+    "name": "Nabla",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "vertical ai",
+      "regulated"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "norm-ai",
+    "name": "Norm AI",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "vertical ai",
+      "regulated"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "openai",
+    "name": "OpenAI",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "frontier ai",
+      "research"
+    ],
+    "ats_provider": "ashby",
+    "ats_slug": "openai",
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "palantir",
+    "name": "Palantir",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "defense",
+      "dual-use"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "perplexity",
+    "name": "Perplexity",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "frontier ai",
+      "research"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "persona",
+    "name": "Persona",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "fintech",
+      "operations"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "pillar",
+    "name": "Pillar",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "vertical ai",
+      "regulated"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "pinecone",
+    "name": "Pinecone",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "plaid",
+    "name": "Plaid",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "fintech",
+      "operations"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "poolside",
+    "name": "Poolside",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "ramp",
+    "name": "Ramp",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "fintech",
+      "operations"
+    ],
+    "ats_provider": "ashby",
+    "ats_slug": "ramp",
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "regie-ai",
+    "name": "Regie.ai",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "vertical ai",
+      "regulated"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "reka",
+    "name": "Reka",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "frontier ai",
+      "research"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "replicate",
+    "name": "Replicate",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "replit",
+    "name": "Replit",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "rippling",
+    "name": "Rippling",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "fintech",
+      "operations"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "saildrone",
+    "name": "Saildrone",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "defense",
+      "dual-use"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "saronic",
+    "name": "Saronic",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "defense",
+      "dual-use"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "shield-ai",
+    "name": "Shield AI",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "defense",
+      "dual-use"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "sierra",
+    "name": "Sierra",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": "ashby",
+    "ats_slug": "sierra",
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "skydio",
+    "name": "Skydio",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "defense",
+      "dual-use"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "snowflake",
+    "name": "Snowflake",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "sourcegraph",
+    "name": "Sourcegraph",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "spellbook",
+    "name": "Spellbook",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "vertical ai",
+      "regulated"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "stealth-ai-operator-1",
+    "name": "Stealth AI Operator 1",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-10",
+    "name": "Stealth AI Operator 10",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-100",
+    "name": "Stealth AI Operator 100",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-101",
+    "name": "Stealth AI Operator 101",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-102",
+    "name": "Stealth AI Operator 102",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-103",
+    "name": "Stealth AI Operator 103",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-104",
+    "name": "Stealth AI Operator 104",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-105",
+    "name": "Stealth AI Operator 105",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-106",
+    "name": "Stealth AI Operator 106",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-107",
+    "name": "Stealth AI Operator 107",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-108",
+    "name": "Stealth AI Operator 108",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-109",
+    "name": "Stealth AI Operator 109",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-11",
+    "name": "Stealth AI Operator 11",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-110",
+    "name": "Stealth AI Operator 110",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-111",
+    "name": "Stealth AI Operator 111",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-112",
+    "name": "Stealth AI Operator 112",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-113",
+    "name": "Stealth AI Operator 113",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-114",
+    "name": "Stealth AI Operator 114",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-115",
+    "name": "Stealth AI Operator 115",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-116",
+    "name": "Stealth AI Operator 116",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-117",
+    "name": "Stealth AI Operator 117",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-12",
+    "name": "Stealth AI Operator 12",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-13",
+    "name": "Stealth AI Operator 13",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-14",
+    "name": "Stealth AI Operator 14",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-15",
+    "name": "Stealth AI Operator 15",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-16",
+    "name": "Stealth AI Operator 16",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-17",
+    "name": "Stealth AI Operator 17",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-18",
+    "name": "Stealth AI Operator 18",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-19",
+    "name": "Stealth AI Operator 19",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-2",
+    "name": "Stealth AI Operator 2",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-20",
+    "name": "Stealth AI Operator 20",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-21",
+    "name": "Stealth AI Operator 21",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-22",
+    "name": "Stealth AI Operator 22",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-23",
+    "name": "Stealth AI Operator 23",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-24",
+    "name": "Stealth AI Operator 24",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-25",
+    "name": "Stealth AI Operator 25",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-26",
+    "name": "Stealth AI Operator 26",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-27",
+    "name": "Stealth AI Operator 27",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-28",
+    "name": "Stealth AI Operator 28",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-29",
+    "name": "Stealth AI Operator 29",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-3",
+    "name": "Stealth AI Operator 3",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-30",
+    "name": "Stealth AI Operator 30",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-31",
+    "name": "Stealth AI Operator 31",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-32",
+    "name": "Stealth AI Operator 32",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-33",
+    "name": "Stealth AI Operator 33",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-34",
+    "name": "Stealth AI Operator 34",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-35",
+    "name": "Stealth AI Operator 35",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-36",
+    "name": "Stealth AI Operator 36",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-37",
+    "name": "Stealth AI Operator 37",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-38",
+    "name": "Stealth AI Operator 38",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-39",
+    "name": "Stealth AI Operator 39",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-4",
+    "name": "Stealth AI Operator 4",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-40",
+    "name": "Stealth AI Operator 40",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-41",
+    "name": "Stealth AI Operator 41",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-42",
+    "name": "Stealth AI Operator 42",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-43",
+    "name": "Stealth AI Operator 43",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-44",
+    "name": "Stealth AI Operator 44",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-45",
+    "name": "Stealth AI Operator 45",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-46",
+    "name": "Stealth AI Operator 46",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-47",
+    "name": "Stealth AI Operator 47",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-48",
+    "name": "Stealth AI Operator 48",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-49",
+    "name": "Stealth AI Operator 49",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-5",
+    "name": "Stealth AI Operator 5",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-50",
+    "name": "Stealth AI Operator 50",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-51",
+    "name": "Stealth AI Operator 51",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-52",
+    "name": "Stealth AI Operator 52",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-53",
+    "name": "Stealth AI Operator 53",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-54",
+    "name": "Stealth AI Operator 54",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-55",
+    "name": "Stealth AI Operator 55",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-56",
+    "name": "Stealth AI Operator 56",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-57",
+    "name": "Stealth AI Operator 57",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-58",
+    "name": "Stealth AI Operator 58",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-59",
+    "name": "Stealth AI Operator 59",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-6",
+    "name": "Stealth AI Operator 6",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-60",
+    "name": "Stealth AI Operator 60",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-61",
+    "name": "Stealth AI Operator 61",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-62",
+    "name": "Stealth AI Operator 62",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-63",
+    "name": "Stealth AI Operator 63",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-64",
+    "name": "Stealth AI Operator 64",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-65",
+    "name": "Stealth AI Operator 65",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-66",
+    "name": "Stealth AI Operator 66",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-67",
+    "name": "Stealth AI Operator 67",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-68",
+    "name": "Stealth AI Operator 68",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-69",
+    "name": "Stealth AI Operator 69",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-7",
+    "name": "Stealth AI Operator 7",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-70",
+    "name": "Stealth AI Operator 70",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-71",
+    "name": "Stealth AI Operator 71",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-72",
+    "name": "Stealth AI Operator 72",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-73",
+    "name": "Stealth AI Operator 73",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-74",
+    "name": "Stealth AI Operator 74",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-75",
+    "name": "Stealth AI Operator 75",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-76",
+    "name": "Stealth AI Operator 76",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-77",
+    "name": "Stealth AI Operator 77",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-78",
+    "name": "Stealth AI Operator 78",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-79",
+    "name": "Stealth AI Operator 79",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-8",
+    "name": "Stealth AI Operator 8",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-80",
+    "name": "Stealth AI Operator 80",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-81",
+    "name": "Stealth AI Operator 81",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-82",
+    "name": "Stealth AI Operator 82",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-83",
+    "name": "Stealth AI Operator 83",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-84",
+    "name": "Stealth AI Operator 84",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-85",
+    "name": "Stealth AI Operator 85",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-86",
+    "name": "Stealth AI Operator 86",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-87",
+    "name": "Stealth AI Operator 87",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-88",
+    "name": "Stealth AI Operator 88",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-89",
+    "name": "Stealth AI Operator 89",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-9",
+    "name": "Stealth AI Operator 9",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-90",
+    "name": "Stealth AI Operator 90",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-91",
+    "name": "Stealth AI Operator 91",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-92",
+    "name": "Stealth AI Operator 92",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-93",
+    "name": "Stealth AI Operator 93",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-94",
+    "name": "Stealth AI Operator 94",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-95",
+    "name": "Stealth AI Operator 95",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-96",
+    "name": "Stealth AI Operator 96",
+    "logo_url": null,
+    "stage": "series_b",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-97",
+    "name": "Stealth AI Operator 97",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-98",
+    "name": "Stealth AI Operator 98",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stealth-ai-operator-99",
+    "name": "Stealth AI Operator 99",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": false,
+    "notes": "Placeholder seed company for local density testing."
+  },
+  {
+    "slug": "stripe",
+    "name": "Stripe",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "fintech",
+      "operations"
+    ],
+    "ats_provider": "custom",
+    "ats_slug": "stripe",
+    "custom_scraper_id": "stripe",
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "tecton",
+    "name": "Tecton",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "tessera",
+    "name": "Tessera",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "vertical ai",
+      "regulated"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "tessl",
+    "name": "Tessl",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "together-ai",
+    "name": "Together AI",
+    "logo_url": null,
+    "stage": "gov_defense",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": "greenhouse",
+    "ats_slug": "togetherai",
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "vannevar-labs",
+    "name": "Vannevar Labs",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "501-1000",
+    "industry_tags": [
+      "defense",
+      "dual-use"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "vanta",
+    "name": "Vanta",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "fintech",
+      "operations"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "watershed",
+    "name": "Watershed",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "fintech",
+      "operations"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "weights-and-biases",
+    "name": "Weights & Biases",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai infra",
+      "data"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "writer",
+    "name": "Writer",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  },
+  {
+    "slug": "xai",
+    "name": "xAI",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "frontier ai",
+      "research"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": null
+  }
+]

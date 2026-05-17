@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import JobRow from "../../components/JobRow.astro";
+import { getCompanies, getJobs, getTickerItems } from "../../lib/data";
+import { countAddedThisWeek, enrichJobs } from "../../lib/filters";
+import { stageLabel } from "../../lib/format";
+
+export async function getStaticPaths() {
+  const companies = getCompanies();
+  return companies.map((company) => ({
+    params: { slug: company.slug },
+    props: { company }
+  }));
+}
+
+const { company } = Astro.props;
+const companies = getCompanies();
+const jobs = getJobs();
+const tickerItems = getTickerItems();
+const liveJobs = enrichJobs(jobs, companies);
+const companyJobs = liveJobs.filter((job) => job.company_slug === company.slug);
+const addedThisWeek = countAddedThisWeek(jobs);
+---
+
+<BaseLayout
+  title={`${company.name} FDE Roles · FDE Jobs`}
+  tickerItems={tickerItems}
+  openRoleCount={liveJobs.length}
+  addedThisWeek={addedThisWeek}
+>
+  <main class="site-shell">
+    <section class="page-head">
+      <div class="eyebrow">Company</div>
+      <h1 class="page-title">{company.name}</h1>
+      <p class="page-subhead">
+        <span class="chip stage">{stageLabel(company.stage)}</span>
+        <span class="chip">{company.headcount_band}</span>
+        {company.industry_tags.map((tag) => <span class="chip">{tag}</span>)}
+      </p>
+    </section>
+    <section class="job-list">
+      {companyJobs.length > 0 ? companyJobs.map((job) => <JobRow job={job} />) : <div class="empty-state">No live roles tracked right now.</div>}
+    </section>
+  </main>
+</BaseLayout>

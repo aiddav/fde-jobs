@@ -1,0 +1,28 @@
+name: Submit a job
+description: Suggest a role for FDE Jobs
+title: "Job submission: "
+labels: ["submission"]
+body:
+  - type: input
+    id: company
+    attributes:
+      label: Company
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Role title
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Apply URL
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Travel, comp, location, or why this is FDE-relevant.

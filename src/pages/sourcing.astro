@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCompanies, getJobs, getTickerItems } from "../lib/data";
+import { countAddedThisWeek, enrichJobs } from "../lib/filters";
+import { stageLabel } from "../lib/format";
+
+const companies = getCompanies();
+const jobs = getJobs();
+const liveJobs = enrichJobs(jobs, companies);
+const tickerItems = getTickerItems();
+const addedThisWeek = countAddedThisWeek(jobs);
+---
+
+<BaseLayout title="Sourcing · FDE Jobs" tickerItems={tickerItems} openRoleCount={liveJobs.length} addedThisWeek={addedThisWeek}>
+  <main class="site-shell">
+    <section class="page-head">
+      <div class="eyebrow">Sourcing</div>
+      <h1 class="page-title">Tracked companies and ingestion method.</h1>
+      <p class="page-subhead">
+        Public ATS APIs first, HTML only where necessary, and manual review for low-confidence community leads.
+      </p>
+    </section>
+    <section class="job-list">
+      {companies.map((company) => {
+        const companyJobs = liveJobs.filter((job) => job.company_slug === company.slug);
+        return (
+          <a class="job-row" href={`/companies/${company.slug}/`}>
+            <div class="job-row-main">
+              <div class="job-company-line">
+                <span class="job-company-name">{company.name}</span>
+                <span class="chip stage">{stageLabel(company.stage)}</span>
+              </div>
+              <div class="job-title">{company.ats_provider ?? "manual"}</div>
+              <div class="job-tags">
+                {company.industry_tags.slice(0, 2).map((tag) => <span class="chip">{tag}</span>)}
+              </div>
+              <div class="job-right">
+                <span class="job-comp">{companyJobs.length} live</span>
+                <span class="job-date">{company.is_active ? "active" : "paused"}</span>
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </section>
+  </main>
+</BaseLayout>

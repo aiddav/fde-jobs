@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCompanies, getJobs, getTickerItems } from "../lib/data";
+import { countAddedThisWeek, enrichJobs } from "../lib/filters";
+
+const companies = getCompanies();
+const jobs = getJobs();
+const liveJobs = enrichJobs(jobs, companies);
+const tickerItems = getTickerItems();
+const addedThisWeek = countAddedThisWeek(jobs);
+---
+
+<BaseLayout title="About · FDE Jobs" tickerItems={tickerItems} openRoleCount={liveJobs.length} addedThisWeek={addedThisWeek}>
+  <main class="detail-shell">
+    <section class="page-head">
+      <div class="eyebrow">About</div>
+      <h1 class="page-title">A board for the roles where engineering meets the customer.</h1>
+      <p class="page-subhead">
+        FDE Jobs tracks Forward Deployed Engineer, Deployed Engineer, Solutions Engineer, and AI Solutions Engineer roles where stage, travel, customer exposure, comp, and work mix matter.
+      </p>
+    </section>
+    <section class="prose">
+      <h2>Sourcing</h2>
+      <p>
+        Listings come from public ATS APIs, selected career pages, manual submissions, and reviewed community sources. Every job links to the original application URL. Applications are never proxied.
+      </p>
+      <p>
+        The repository is the database. Jobs, companies, ticker items, ingestion state, and removal changes are all versioned as commits.
+      </p>
+      <h2>Removal</h2>
+      <p>
+        For removal or correction requests, contact <span class="mono">remove@fdejobs.local</span>. Requests are handled by deleting or editing the matching JSON entry and redeploying the static site.
+      </p>
+    </section>
+  </main>
+</BaseLayout>

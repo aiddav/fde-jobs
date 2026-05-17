@@ -1,0 +1,57 @@
+---
+import type { PostingStats, TickerItem } from "../lib/types";
+
+type Props = {
+  items: TickerItem[];
+  openRoleCount: number;
+  addedThisWeek: number;
+  postingStats?: PostingStats;
+};
+
+const { items, openRoleCount, addedThisWeek, postingStats } = Astro.props;
+const change = postingStats?.momChangePct;
+const changeClass = change === null || change === undefined || change === 0 ? "neutral" : change > 0 ? "positive" : "negative";
+const changeText = change === null || change === undefined
+  ? "MOM N/A"
+  : `${change > 0 ? "+" : ""}${change}% MOM`;
+const computed = [
+  {
+    label: "STAT",
+    text: postingStats
+      ? `${postingStats.totalEstimate} EST. FDE POSTINGS · ${postingStats.currentMonthLabel} ${changeText}`
+      : `${openRoleCount} OPEN FDE ROLES · ${addedThisWeek} ADDED THIS WEEK`,
+    url: null,
+    changeClass
+  },
+  {
+    label: "STAT",
+    text: `${openRoleCount} LIVE ROLES · ${addedThisWeek} ADDED THIS WEEK`,
+    url: null,
+    changeClass: "neutral"
+  },
+  ...items.map((item) => ({
+    label: item.kind === "milestone" ? "STAT" : item.kind === "announcement" ? "NEW" : "NEWS",
+    text: item.text,
+    url: item.url,
+    changeClass: "neutral"
+  }))
+];
+const tickerItems = computed.length > 0 ? computed : [{ label: "STAT", text: "0 OPEN FDE ROLES", url: null, changeClass: "neutral" }];
+---
+
+<div class="ticker" aria-label="FDE Jobs ticker">
+  <div class="ticker-track">
+    {
+      [0, 1].map(() => (
+        <div class="ticker-set" aria-hidden={undefined}>
+          {tickerItems.map((item) => (
+            <span>
+              <span class="ticker-label">{item.label}</span>{" "}
+              {item.url ? <a class={`ticker-item ${item.changeClass}`} href={item.url}>{item.text}</a> : <span class={`ticker-item ${item.changeClass}`}>{item.text}</span>}
+            </span>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</div>

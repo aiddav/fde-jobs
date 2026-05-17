@@ -1,0 +1,10 @@
+---
+type Props = {
+  as?: "span" | "p" | "div";
+};
+
+const { as = "span" } = Astro.props as Props;
+const Tag = as;
+---
+
+<Tag class="mono"><slot /></Tag>

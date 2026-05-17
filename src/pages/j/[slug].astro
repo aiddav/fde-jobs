@@ -1,0 +1,131 @@
+---
+import { marked } from "marked";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCompanies, getJobs, getTickerItems } from "../../lib/data";
+import {
+  customerFacingLabel,
+  describeLocations,
+  formatComp,
+  formatDate,
+  postedAgo,
+  stageLabel,
+  travelLabel
+} from "../../lib/format";
+import { countAddedThisWeek, enrichJobs } from "../../lib/filters";
+
+export async function getStaticPaths() {
+  const jobs = getJobs();
+  return jobs.map((job) => ({
+    params: { slug: job.slug },
+    props: { job }
+  }));
+}
+
+const { job } = Astro.props;
+const companies = getCompanies();
+const jobs = getJobs();
+const tickerItems = getTickerItems();
+const company = companies.find((item) => item.slug === job.company_slug);
+
+if (!company) {
+  throw new Error(`Missing company for ${job.slug}`);
+}
+
+const liveJobs = enrichJobs(jobs, companies);
+const siblings = liveJobs.filter((item) => item.company_slug === job.company_slug && item.slug !== job.slug).slice(0, 3);
+const descriptionHtml = marked.parse(job.description_md);
+const title = `${job.title} at ${company.name} · FDE Jobs`;
+const addedThisWeek = countAddedThisWeek(jobs);
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  title: job.title,
+  description: job.description_md,
+  datePosted: job.posted_at,
+  validThrough: job.expires_at ?? undefined,
+  employmentType: "FULL_TIME",
+  hiringOrganization: {
+    "@type": "Organization",
+    name: company.name,
+    sameAs: job.apply_url,
+    logo: company.logo_url ?? undefined
+  },
+  jobLocationType: job.location_type === "remote" ? "TELECOMMUTE" : undefined,
+  applicantLocationRequirements: job.locations.map((name) => ({
+    "@type": "Country",
+    name
+  })),
+  baseSalary: job.comp_base_min || job.comp_base_max ? {
+    "@type": "MonetaryAmount",
+    currency: job.comp_currency,
+    value: {
+      "@type": "QuantitativeValue",
+      minValue: job.comp_base_min ?? undefined,
+      maxValue: job.comp_base_max ?? undefined,
+      unitText: "YEAR"
+    }
+  } : undefined,
+  url: job.apply_url
+};
+---
+
+<BaseLayout
+  title={title}
+  tickerItems={tickerItems}
+  openRoleCount={liveJobs.length}
+  addedThisWeek={addedThisWeek}
+  ogImage={`/og/${job.slug}.png`}
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <main class="detail-shell">
+    <a class="breadcrumb" href="/">← All roles</a>
+    <div class="detail-company">
+      <div class="logo-mark" aria-hidden="true">{company.name.slice(0, 1)}</div>
+      <div>
+        <div class="job-company-line">
+          <span class="job-company-name">{company.name}</span>
+          <span class="chip stage">{stageLabel(company.stage)}</span>
+          <span class="chip">{company.headcount_band}</span>
+        </div>
+      </div>
+    </div>
+    <h1 class="detail-title">{job.title}</h1>
+    <p class="detail-meta">
+      {describeLocations(job)} · {travelLabel(job.travel_pct_band)} · {postedAgo(job.posted_at)} ago
+    </p>
+    <section class="comp-block" aria-label="Compensation">
+      <strong class="mono">{formatComp(job)}</strong>
+      <span>{job.equity_offered ? job.equity_note ?? "Equity offered" : "Equity not listed"}</span>
+      <span class="mono">{job.comp_currency}</span>
+    </section>
+    <a class="button-primary" href={job.apply_url} target="_blank" rel="noopener noreferrer">Apply</a>
+    <section class="prose" aria-label="About the role" set:html={descriptionHtml} />
+    <section class="comp-block" aria-label="Tags">
+      {company.industry_tags.map((tag) => <span class="chip">{tag}</span>)}
+      {job.benefits_tags.map((tag) => <span class="chip">{tag}</span>)}
+      <span class="chip">{customerFacingLabel(job.customer_facing_pct_band)}</span>
+    </section>
+    {siblings.length > 0 && (
+      <section>
+        <h2 class="filter-label">More at {company.name}</h2>
+        <div class="job-list">
+          {siblings.map((item) => (
+            <a class="job-row" href={`/j/${item.slug}/`}>
+              <div class="job-row-main">
+                <div class="job-title">{item.title}</div>
+                <div class="job-meta-line">{describeLocations(item)}</div>
+                <div class="job-tags">
+                  <span class="chip">{formatComp(item)}</span>
+                  <span class="chip">{postedAgo(item.posted_at)}</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+    <p class="micro mono">
+      Sourced from {job.source_provider} · Posted {formatDate(job.posted_at)} · Last seen tracked in repository state
+    </p>
+  </main>
+</BaseLayout>

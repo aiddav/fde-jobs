@@ -1,0 +1,71 @@
+---
+import ThemeToggle from "../components/ThemeToggle";
+import Ticker from "../components/Ticker.astro";
+import "../styles/globals.css";
+import type { PostingStats, TickerItem } from "../lib/types";
+
+type Props = {
+  title?: string;
+  description?: string;
+  tickerItems?: TickerItem[];
+  openRoleCount?: number;
+  addedThisWeek?: number;
+  postingStats?: PostingStats;
+  ogImage?: string;
+};
+
+const {
+  title = "FDE Jobs",
+  description = "A dense jobs board for Forward Deployed Engineers, Deployed Engineers, Solutions Engineers, and AI Solutions Engineers.",
+  tickerItems = [],
+  openRoleCount = 0,
+  addedThisWeek = 0,
+  postingStats,
+  ogImage
+} = Astro.props;
+
+const plausibleDomain = import.meta.env.PLAUSIBLE_DOMAIN;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://aiddav.github.io/fde-jobs").toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <title>{title}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline>
+      (() => {
+        const match = document.cookie.match(/(?:^|; )theme=([^;]+)/);
+        if (match) document.documentElement.dataset.theme = decodeURIComponent(match[1]);
+      })();
+    </script>
+    {
+      plausibleDomain && (
+        <script
+          is:inline
+          defer
+          data-domain={plausibleDomain}
+          src="https://plausible.io/js/script.js"
+        />
+      )
+    }
+  </head>
+  <body>
+    <Ticker items={tickerItems} openRoleCount={openRoleCount} addedThisWeek={addedThisWeek} postingStats={postingStats} />
+    <slot />
+    <footer class="site-shell footer">
+      <div class="footer-inner">
+        <span class="mono">Repo-backed listings · Every update is a commit</span>
+        <ThemeToggle client:load />
+      </div>
+    </footer>
+  </body>
+</html>

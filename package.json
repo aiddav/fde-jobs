@@ -1,0 +1,52 @@
+{
+  "name": "fde-jobs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.12.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "typecheck": "astro check && tsc --noEmit",
+    "lint": "eslint . --max-warnings=0",
+    "validate:data": "tsx scripts/validate-data.ts",
+    "seed:companies": "tsx scripts/seed-companies.ts",
+    "seed:jobs": "tsx scripts/seed-jobs.ts",
+    "ingest:tier1": "tsx ingest/run-tier1.ts",
+    "ingest:tier2": "tsx ingest/run-tier2.ts",
+    "ingest:tier3": "tsx ingest/run-tier3.ts",
+    "expire": "tsx ingest/expire.ts",
+    "generate:og": "tsx scripts/generate-og.ts",
+    "check:css": "tsx scripts/check-css.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/openai-compatible": "^1.0.15",
+    "@astrojs/preact": "^4.1.0",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.5.1",
+    "@fontsource/fraunces": "^5.2.5",
+    "@fontsource/geist-mono": "^5.2.5",
+    "@fontsource/geist-sans": "^5.2.5",
+    "@resvg/resvg-js": "^2.6.2",
+    "@tailwindcss/vite": "^4.1.17",
+    "ai": "^5.0.95",
+    "astro": "^5.15.6",
+    "cheerio": "^1.1.2",
+    "clsx": "^2.1.1",
+    "marked": "^17.0.1",
+    "preact": "^10.27.2",
+    "satori": "^0.18.3",
+    "tailwindcss": "^4.1.17",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.3"
+  }
+}

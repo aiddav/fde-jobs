@@ -1,0 +1,10 @@
+---
+type Props = {
+  label: string;
+  variant?: "stage" | "tag" | "featured" | "closing";
+};
+
+const { label, variant = "tag" } = Astro.props;
+---
+
+<span class:list={["chip", variant]}>{label}</span>

@@ -1,0 +1,10 @@
+---
+import JobRow from "./JobRow.astro";
+import type { JobWithCompany } from "../lib/types";
+
+type Props = {
+  job: JobWithCompany;
+};
+---
+
+<JobRow job={Astro.props.job} />

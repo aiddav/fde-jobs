@@ -1,0 +1,38 @@
+[
+  {
+    "id": "openai-tomoro-fde-2026",
+    "kind": "announcement",
+    "text": "OPENAI ACQUIRES TOMORO FOR DEPLOYMENT ENGINEERING",
+    "url": "https://openai.com/index/openai-launches-the-deployment-company/",
+    "published_at": "2026-04-24T00:00:00.000Z",
+    "expires_at": "2026-08-24T00:00:00.000Z",
+    "is_pinned": true
+  },
+  {
+    "id": "google-cloud-fde-push-2026",
+    "kind": "news",
+    "text": "GOOGLE CLOUD BUILDS FORWARD DEPLOYED AI TEAMS",
+    "url": "https://www.capgemini.com/wp-content/uploads/2026/04/04_23_Capgemini-news-alert_Google-Cloud-AI-Enterprise-Hub.pdf",
+    "published_at": "2026-04-23T00:00:00.000Z",
+    "expires_at": "2026-08-23T00:00:00.000Z",
+    "is_pinned": true
+  },
+  {
+    "id": "a16z-services-led-growth-2026",
+    "kind": "news",
+    "text": "A16Z: SERVICES-LED GROWTH MAKES FDES STRATEGIC",
+    "url": "https://a16z.com/services-led-growth/",
+    "published_at": "2026-01-13T00:00:00.000Z",
+    "expires_at": "2026-07-13T00:00:00.000Z",
+    "is_pinned": false
+  },
+  {
+    "id": "pave-fde-rise-2025",
+    "kind": "milestone",
+    "text": "PAVE: FDE ROLE SHARE REACHES 1.24% OF COMPANIES",
+    "url": "https://www.pave.com/blog-posts/forward-deployed-engineer-on-the-rise",
+    "published_at": "2025-10-08T00:00:00.000Z",
+    "expires_at": "2026-10-08T00:00:00.000Z",
+    "is_pinned": false
+  }
+]
