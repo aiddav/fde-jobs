@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCompanies, getJobs, getTickerItems } from "../../lib/data";
+import { countAddedThisWeek, enrichJobs } from "../../lib/filters";
+import { getRoleArticle, roleArticles, roleHubPath } from "../../lib/roleContent";
+
+export function getStaticPaths() {
+  return roleArticles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article }
+  }));
+}
+
+const { article } = Astro.props;
+const companies = getCompanies();
+const jobs = getJobs();
+const liveJobs = enrichJobs(jobs, companies);
+const tickerItems = getTickerItems();
+const addedThisWeek = countAddedThisWeek(jobs);
+
+if (!getRoleArticle(article.slug)) {
+  throw new Error(`Missing role article ${article.slug}`);
+}
+---
+
+<BaseLayout
+  title={`${article.title} · FDE Jobs`}
+  description={article.description}
+  tickerItems={tickerItems}
+  openRoleCount={liveJobs.length}
+  addedThisWeek={addedThisWeek}
+>
+  <main class="detail-shell">
+    <a class="breadcrumb" href={roleHubPath}>← Content</a>
+    <section class="page-head">
+      <div class="eyebrow">{article.eyebrow}</div>
+      <h1 class="page-title">{article.title}</h1>
+      <p class="page-subhead">{article.description}</p>
+      <p class="detail-meta">{article.readingTime} · Updated {article.updatedAt}</p>
+    </section>
+    <article class="prose">
+      {article.sections.map((section) => (
+        <section>
+          <h2>{section.heading}</h2>
+          {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+          {section.bullets && (
+            <ul>
+              {section.bullets.map((item) => <li>{item}</li>)}
+            </ul>
+          )}
+        </section>
+      ))}
+      <section>
+        <h2>Sources</h2>
+        <ul>
+          {article.sources.map((source) => (
+            <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></li>
+          ))}
+        </ul>
+      </section>
+    </article>
+  </main>
+</BaseLayout>

@@ -1,0 +1,155 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCompanies, getJobs, getMarketStats, getTickerItems } from "../lib/data";
+import { countAddedThisWeek, enrichJobs } from "../lib/filters";
+
+type Row = {
+  label: string;
+  value: number;
+};
+
+const companies = getCompanies();
+const jobs = getJobs();
+const liveJobs = enrichJobs(jobs, companies);
+const tickerItems = getTickerItems();
+const marketStats = getMarketStats();
+const addedThisWeek = countAddedThisWeek(jobs);
+
+function increment(map: Map<string, number>, key: string) {
+  map.set(key, (map.get(key) ?? 0) + 1);
+}
+
+function toRows(map: Map<string, number>, limit = 8): Row[] {
+  return [...map.entries()]
+    .map(([label, value]) => ({ label, value }))
+    .sort((a, b) => b.value - a.value || a.label.localeCompare(b.label))
+    .slice(0, limit);
+}
+
+function countryFromLocations(locations: string[], locationType: string) {
+  const text = locations.join(" ").toLowerCase();
+  if (locationType === "remote" && /(global|worldwide|anywhere)/.test(text)) return "Global remote";
+  if (/(united kingdom|london|uk|england|scotland|wales)/.test(text)) return "United Kingdom";
+  if (/(united states|usa|us remote|remote us|new york|nyc|san francisco|boston|seattle|austin|chicago|dallas|washington|atlanta|denver|california|texas)/.test(text)) return "United States";
+  if (/(canada|toronto|vancouver)/.test(text)) return "Canada";
+  if (/(france|paris)/.test(text)) return "France";
+  if (/(germany|berlin|munich)/.test(text)) return "Germany";
+  if (/(ireland|dublin)/.test(text)) return "Ireland";
+  if (/(netherlands|amsterdam)/.test(text)) return "Netherlands";
+  if (/(italy|milan|rome)/.test(text)) return "Italy";
+  if (/(spain|madrid|barcelona)/.test(text)) return "Spain";
+  if (/(sweden|stockholm)/.test(text)) return "Sweden";
+  if (/(singapore)/.test(text)) return "Singapore";
+  if (/(japan|tokyo)/.test(text)) return "Japan";
+  if (/(india|bengaluru|bangalore|delhi)/.test(text)) return "India";
+  if (/(australia|sydney|melbourne|brisbane)/.test(text)) return "Australia";
+  if (/(south korea|seoul|korea)/.test(text)) return "South Korea";
+  return "Other";
+}
+
+function cityFromLocations(locations: string[], locationType: string) {
+  if (locationType === "remote") return "Remote";
+  const primary = locations[0]?.split(",")[0]?.trim();
+  return primary && primary.length > 0 ? primary : "Other";
+}
+
+const industryMap = new Map<string, number>();
+const companySizeMap = new Map<string, number>();
+const countryMap = new Map<string, number>();
+const cityMap = new Map<string, number>();
+const remoteMap = new Map<string, number>();
+const companyMap = new Map<string, number>();
+
+for (const job of liveJobs) {
+  increment(industryMap, job.company.industry_tags[0] ?? "Other");
+  increment(companySizeMap, job.company.headcount_band);
+  increment(countryMap, countryFromLocations(job.locations, job.location_type));
+  increment(cityMap, cityFromLocations(job.locations, job.location_type));
+  increment(remoteMap, job.location_type === "remote" ? "Remote" : job.location_type === "hybrid" ? "Hybrid" : "Onsite");
+  increment(companyMap, job.company.name);
+}
+
+const remoteCount = remoteMap.get("Remote") ?? 0;
+const remoteShare = liveJobs.length === 0 ? 0 : Math.round((remoteCount / liveJobs.length) * 100);
+const change = marketStats.mom_change_pct;
+const changeLabel = change === null ? "MoM n/a" : `${change > 0 ? "+" : ""}${change}% MoM`;
+const changeClass = change === null || change === 0 ? "neutral" : change > 0 ? "positive" : "negative";
+const charts = [
+  { title: "Indexed roles by industry", rows: toRows(industryMap) },
+  { title: "Indexed roles by company size", rows: toRows(companySizeMap) },
+  { title: "Indexed roles by country", rows: toRows(countryMap) },
+  { title: "Indexed roles by city / remote", rows: toRows(cityMap) },
+  { title: "Indexed roles by work mode", rows: toRows(remoteMap) },
+  { title: "Top companies in the index", rows: toRows(companyMap, 10) }
+];
+---
+
+<BaseLayout
+  title="FDE Growth Tracker · FDE Jobs"
+  description="Charts and market data tracking Forward Deployed Engineer job volume, locations, company size, industry, and remote share."
+  tickerItems={tickerItems}
+  openRoleCount={liveJobs.length}
+  addedThisWeek={addedThisWeek}
+  marketStats={marketStats}
+>
+  <main class="site-shell">
+    <section class="page-head page-head-narrow">
+      <div class="eyebrow">Growth tracker</div>
+      <h1 class="page-title">Forward deployed engineering is becoming a measurable hiring market.</h1>
+      <p class="page-subhead">
+        A weekly signal page for FDE job volume, where roles are appearing, and which company profiles are hiring.
+      </p>
+    </section>
+
+    <section class="metric-grid" aria-label="FDE growth metrics">
+      <div class="metric-card">
+        <span class="eyebrow">Indeed title tracker</span>
+        <strong>{marketStats.postings_count}</strong>
+        <span class={`metric-change ${changeClass}`}>{changeLabel}</span>
+        <p>Forward Deployed Engineer job descriptions tracked for {marketStats.current_period}.</p>
+      </div>
+      <div class="metric-card">
+        <span class="eyebrow">Indexed board roles</span>
+        <strong>{liveJobs.length}</strong>
+        <span class="metric-change neutral">{addedThisWeek} added this week</span>
+        <p>Live roles from company career pages and approved sources.</p>
+      </div>
+      <div class="metric-card">
+        <span class="eyebrow">Remote share</span>
+        <strong>{remoteShare}%</strong>
+        <span class="metric-change neutral">{remoteCount} remote roles</span>
+        <p>Share of indexed live roles currently marked remote.</p>
+      </div>
+    </section>
+
+    <section class="chart-grid" aria-label="FDE market charts">
+      {charts.map((chart) => {
+        const max = Math.max(...chart.rows.map((row) => row.value), 1);
+        return (
+          <section class="chart-panel">
+            <h2>{chart.title}</h2>
+            <div class="bar-chart">
+              {chart.rows.map((row) => (
+                <div class="bar-row" style={`--bar:${Math.max(4, Math.round((row.value / max) * 100))}%`}>
+                  <span>{row.label}</span>
+                  <div aria-hidden="true"><span></span></div>
+                  <strong>{row.value}</strong>
+                </div>
+              ))}
+            </div>
+          </section>
+        );
+      })}
+    </section>
+
+    <section class="source-note">
+      <h2>Methodology</h2>
+      <p>
+        The headline market stat is a repo-backed Indeed title tracker for listings using the title phrase <span class="mono">forward deployed engineer</span>. The breakdown charts use this site's indexed live jobs until the weekly approved Indeed export is wired in.
+      </p>
+      <p>
+        Direct scraping of Indeed is intentionally out of scope. Weekly tracker updates should come from an approved export or data provider and land as versioned JSON.
+      </p>
+    </section>
+  </main>
+</BaseLayout>

@@ -30,10 +30,17 @@ const plausibleDomain = import.meta.env.PLAUSIBLE_DOMAIN;
 const siteRoot = (Astro.site ?? new URL(import.meta.env.SITE_URL ?? "https://aiddav.github.io/fde-jobs")).toString();
 const siteBase = siteRoot.endsWith("/") ? siteRoot : `${siteRoot}/`;
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+const baseHref = import.meta.env.BASE_URL;
 const canonicalPath = Astro.url.pathname
   .replace(new RegExp(`^${basePath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}/?`), "")
   .replace(/^\//, "");
 const canonical = new URL(canonicalPath, siteBase).toString();
+const pathWithoutBase = `/${canonicalPath}`;
+const navItems = [
+  { href: baseHref, label: "Jobs", active: canonicalPath === "" },
+  { href: `${baseHref}content/`, label: "Content", active: pathWithoutBase.startsWith("/content") },
+  { href: `${baseHref}growth/`, label: "Growth", active: pathWithoutBase.startsWith("/growth") }
+];
 ---
 
 <!doctype html>
@@ -68,6 +75,11 @@ const canonical = new URL(canonicalPath, siteBase).toString();
   </head>
   <body>
     <Ticker items={tickerItems} openRoleCount={openRoleCount} addedThisWeek={addedThisWeek} marketStats={marketStats} postingStats={postingStats} />
+    <nav class="site-shell section-nav" aria-label="Primary sections">
+      {navItems.map((item) => (
+        <a href={item.href} aria-current={item.active ? "page" : undefined}>{item.label}</a>
+      ))}
+    </nav>
     <slot />
     <footer class="site-shell footer">
       <div class="footer-inner">

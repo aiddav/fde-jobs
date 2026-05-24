@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCompanies, getJobs, getTickerItems } from "../../lib/data";
+import { countAddedThisWeek, enrichJobs } from "../../lib/filters";
+import { roleArticles, roleArticlePath } from "../../lib/roleContent";
+
+const companies = getCompanies();
+const jobs = getJobs();
+const liveJobs = enrichJobs(jobs, companies);
+const tickerItems = getTickerItems();
+const addedThisWeek = countAddedThisWeek(jobs);
+---
+
+<BaseLayout
+  title="FDE Content · FDE Jobs"
+  description="Practical explainers on Forward Deployed Engineer roles, hiring signals, and the growth of deployment engineering."
+  tickerItems={tickerItems}
+  openRoleCount={liveJobs.length}
+  addedThisWeek={addedThisWeek}
+>
+  <main class="site-shell">
+    <section class="page-head page-head-narrow">
+      <div class="eyebrow">Content</div>
+      <h1 class="page-title">Forward deployed engineering, explained.</h1>
+      <p class="page-subhead">
+        Short, practical notes on what the role is, what great FDEs do, and why the job market is moving so quickly.
+      </p>
+    </section>
+    <section class="content-grid" aria-label="FDE role content">
+      {roleArticles.map((article) => (
+        <a class="content-card" href={roleArticlePath(article.slug)}>
+          <span class="eyebrow">{article.eyebrow}</span>
+          <h2>{article.title}</h2>
+          <p>{article.description}</p>
+          <span class="mono micro">{article.readingTime} · Updated {article.updatedAt}</span>
+        </a>
+      ))}
+    </section>
+  </main>
+</BaseLayout>
