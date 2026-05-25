@@ -6,13 +6,16 @@ export const defaultFilters: FilterState = {
   stage: [],
   locationType: [],
   region: [],
+  city: [],
+  continent: [],
   travel: [],
   customerFacing: [],
   compFloor: null,
   industry: [],
   benefits: [],
   posted: "all",
-  sort: "posted"
+  sort: "posted",
+  page: 1
 };
 
 export const regionOptions = [
@@ -59,6 +62,111 @@ export function deriveRegions(locations: string[], locationType: Job["location_t
   return Array.from(regions);
 }
 
+const nonCityTokens = new Set([
+  "remote",
+  "hybrid",
+  "onsite",
+  "in-person",
+  "global",
+  "worldwide",
+  "anywhere",
+  "emea",
+  "apac",
+  "europe",
+  "united states",
+  "united kingdom",
+  "usa",
+  "us",
+  "uk",
+  "california",
+  "texas",
+  "virginia",
+  "maryland",
+  "new jersey",
+  "missouri",
+  "illinois",
+  "massachusetts",
+  "georgia",
+  "arizona",
+  "ohio",
+  "denmark",
+  "india",
+  "japan",
+  "france",
+  "germany",
+  "italy",
+  "spain",
+  "australia"
+]);
+
+const cityAliases: Record<string, string> = {
+  "nyc": "New York City",
+  "new york": "New York City",
+  "sf": "San Francisco",
+  "washington": "Washington DC",
+  "washington dc": "Washington DC",
+  "bengaluru": "Bengaluru",
+  "bangalore": "Bengaluru",
+  "z rich": "Zurich"
+};
+
+export function deriveCities(locations: string[]) {
+  const cities = new Set<string>();
+
+  for (const location of locations) {
+    const trimmed = location.trim();
+    const normalised = trimmed.toLowerCase().replace(/[.,]/g, "").replace(/\s+/g, " ");
+
+    if (!trimmed || nonCityTokens.has(normalised)) {
+      continue;
+    }
+
+    cities.add(cityAliases[normalised] ?? trimmed);
+  }
+
+  return Array.from(cities);
+}
+
+export const continentOptions = [
+  "North America",
+  "Europe",
+  "Asia-Pacific",
+  "Latin America",
+  "Middle East & Africa",
+  "Remote / Global",
+  "Other"
+];
+
+export function deriveContinents(locations: string[], locationType: Job["location_type"]) {
+  const haystack = locations.join(" ").toLowerCase();
+  const continents = new Set<string>();
+
+  if (locationType === "remote" || /(global|worldwide|anywhere|remote)/.test(haystack)) {
+    continents.add("Remote / Global");
+  }
+  if (/(united states|usa|new york|nyc|san francisco|bay area|seattle|los angeles|austin|denver|washington|dc|boston|chicago|dallas|miami|arlington|tempe|yuma|berkeley|toronto|canada)/.test(haystack)) {
+    continents.add("North America");
+  }
+  if (/(london|united kingdom|uk|england|paris|berlin|amsterdam|dublin|munich|milan|italy|france|germany|spain|sweden|stockholm|zurich|europe|emea)/.test(haystack)) {
+    continents.add("Europe");
+  }
+  if (/(singapore|tokyo|sydney|melbourne|australia|india|bengaluru|bangalore|seoul|apac|japan|korea)/.test(haystack)) {
+    continents.add("Asia-Pacific");
+  }
+  if (/(sao paulo|mexico|costa rica|brazil|latam)/.test(haystack)) {
+    continents.add("Latin America");
+  }
+  if (/(dubai|uae|israel|middle east|africa)/.test(haystack)) {
+    continents.add("Middle East & Africa");
+  }
+
+  if (continents.size === 0) {
+    continents.add("Other");
+  }
+
+  return Array.from(continents);
+}
+
 export function enrichJobs(jobs: Job[], companies: Company[]): JobWithCompany[] {
   const bySlug = Object.fromEntries(companies.map((company) => [company.slug, company]));
 
@@ -71,12 +179,16 @@ export function enrichJobs(jobs: Job[], companies: Company[]): JobWithCompany[] 
       }
 
       const regions = deriveRegions(job.locations, job.location_type);
+      const cities = deriveCities(job.locations);
+      const continents = deriveContinents(job.locations, job.location_type);
       const searchText = [
         job.title,
         company.name,
         company.stage,
         job.role_family,
         ...job.locations,
+        ...cities,
+        ...continents,
         ...company.industry_tags,
         ...job.benefits_tags
       ].join(" ").toLowerCase();
@@ -85,6 +197,8 @@ export function enrichJobs(jobs: Job[], companies: Company[]): JobWithCompany[] 
         ...job,
         company,
         regions,
+        cities,
+        continents,
         search_text: searchText,
         posted_ts: new Date(job.posted_at).getTime()
       };
@@ -137,6 +251,8 @@ export function filterJobs(jobs: JobWithCompany[], filters: FilterState) {
       includesEvery(filters.stage, [job.company.stage]) &&
       includesEvery(filters.locationType, [job.location_type]) &&
       includesEvery(filters.region, job.regions) &&
+      includesEvery(filters.city, job.cities) &&
+      includesEvery(filters.continent, job.continents) &&
       includesEvery(filters.travel, [job.travel_pct_band]) &&
       includesEvery(filters.customerFacing, [job.customer_facing_pct_band]) &&
       (filters.compFloor === null || compMin >= filters.compFloor) &&
@@ -151,6 +267,9 @@ export function filterJobs(jobs: JobWithCompany[], filters: FilterState) {
 
 export function activeFilterCount(filters: FilterState) {
   return Object.entries(filters).reduce((count, [key, value]) => {
+    if (key === "page") {
+      return count;
+    }
     if (key === "sort") {
       return value === "posted" ? count : count + 1;
     }
@@ -172,6 +291,7 @@ export function parseFilters(params: URLSearchParams): FilterState {
   const posted = params.get("posted");
   const compFloor = params.get("compFloor");
   const sort = params.get("sort");
+  const page = Number(params.get("page") ?? "1");
 
   return {
     q: params.get("q") ?? "",
@@ -179,13 +299,16 @@ export function parseFilters(params: URLSearchParams): FilterState {
     stage: split("stage"),
     locationType: split("locationType"),
     region: split("region"),
+    city: split("city"),
+    continent: split("continent"),
     travel: split("travel"),
     customerFacing: split("customerFacing"),
     compFloor: compFloor ? Number(compFloor) : null,
     industry: split("industry"),
     benefits: split("benefits"),
     posted: posted === "24h" || posted === "7d" || posted === "30d" ? posted : "all",
-    sort: sort === "company" || sort === "comp" || sort === "stage" ? sort : "posted"
+    sort: sort === "company" || sort === "comp" || sort === "stage" ? sort : "posted",
+    page: Number.isInteger(page) && page > 0 ? page : 1
   };
 }
 
@@ -204,6 +327,8 @@ export function filtersToParams(filters: FilterState) {
   addList("stage", filters.stage);
   addList("locationType", filters.locationType);
   addList("region", filters.region);
+  addList("city", filters.city);
+  addList("continent", filters.continent);
   addList("travel", filters.travel);
   addList("customerFacing", filters.customerFacing);
   addList("industry", filters.industry);
@@ -216,6 +341,9 @@ export function filtersToParams(filters: FilterState) {
   }
   if (filters.sort !== "posted") {
     params.set("sort", filters.sort);
+  }
+  if (filters.page > 1) {
+    params.set("page", String(filters.page));
   }
   return params;
 }

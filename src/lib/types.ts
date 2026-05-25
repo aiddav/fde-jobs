@@ -17,6 +17,8 @@ export type JobWithCompany = import("./schema").Job & {
   company: import("./schema").Company;
   search_text: string;
   regions: string[];
+  cities: string[];
+  continents: string[];
   posted_ts: number;
 };
 
@@ -26,6 +28,8 @@ export type FilterState = {
   stage: string[];
   locationType: string[];
   region: string[];
+  city: string[];
+  continent: string[];
   travel: string[];
   customerFacing: string[];
   compFloor: number | null;
@@ -33,6 +37,7 @@ export type FilterState = {
   benefits: string[];
   posted: "24h" | "7d" | "30d" | "all";
   sort: "posted" | "company" | "comp" | "stage";
+  page: number;
 };
 
 export type PostingStats = {

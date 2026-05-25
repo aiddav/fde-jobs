@@ -38,6 +38,8 @@ export const sourceProviderSchema = z.enum([
   "workable",
   "custom",
   "hn_who_is_hiring",
+  "indeed",
+  "wellfound",
   "manual"
 ]);
 

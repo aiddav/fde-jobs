@@ -2,19 +2,19 @@ import { useEffect, useMemo, useState } from "preact/hooks";
 import SearchInput from "./SearchInput";
 import {
   activeFilterCount,
+  continentOptions,
   defaultFilters,
   filterJobs,
   filtersToParams,
-  parseFilters,
-  regionOptions
+  parseFilters
 } from "../lib/filters";
 import {
-  customerFacingLabel,
   describeLocations,
   formatComp,
   isClosingSoon,
   isNew,
   postedAgo,
+  roleSignalLabel,
   roleLabel,
   stageLabel,
   travelLabel
@@ -49,12 +49,19 @@ const stageOptions = [
 const locationOptions = ["onsite", "hybrid", "remote"] as const;
 const travelOptions = ["none", "low_0_25", "med_25_50", "high_50_plus"] as const;
 const facingOptions = ["low_0_25", "med_25_50", "high_50_plus"] as const;
+const pageSize = 20;
 const postedOptions = [
   ["24h", "24h"],
   ["7d", "7d"],
   ["30d", "30d"],
   ["all", "All"]
 ] as const;
+
+const exposureLabels: Record<(typeof facingOptions)[number], string> = {
+  low_0_25: "Mostly internal",
+  med_25_50: "Mixed field/internal",
+  high_50_plus: "High field exposure"
+};
 const sortOptions = [
   ["posted", "Newest"],
   ["company", "Company"],
@@ -90,6 +97,7 @@ function toggleList(filters: FilterState, key: keyof FilterState, value: string)
   }
   return {
     ...filters,
+    page: 1,
     [key]: current.includes(value) ? current.filter((item) => item !== value) : [...current, value]
   };
 }
@@ -130,12 +138,14 @@ function FilterControls({
   filters,
   setFilters,
   industryOptions,
-  benefitOptions
+  benefitOptions,
+  cityOptions
 }: {
   filters: FilterState;
   setFilters: (filters: FilterState) => void;
   industryOptions: string[];
   benefitOptions: string[];
+  cityOptions: string[];
 }) {
   return (
     <div class="filters-grid">
@@ -169,13 +179,23 @@ function FilterControls({
           />
         ))}
       </FilterGroup>
-      <FilterGroup label="Region">
-        {regionOptions.map((region) => (
+      <FilterGroup label="City">
+        {cityOptions.map((city) => (
           <CheckboxOption
-            key={region}
-            label={region}
-            checked={filters.region.includes(region)}
-            onChange={() => setFilters(toggleList(filters, "region", region))}
+            key={city}
+            label={city}
+            checked={filters.city.includes(city)}
+            onChange={() => setFilters(toggleList(filters, "city", city))}
+          />
+        ))}
+      </FilterGroup>
+      <FilterGroup label="Continent">
+        {continentOptions.map((continent) => (
+          <CheckboxOption
+            key={continent}
+            label={continent}
+            checked={filters.continent.includes(continent)}
+            onChange={() => setFilters(toggleList(filters, "continent", continent))}
           />
         ))}
       </FilterGroup>
@@ -189,11 +209,11 @@ function FilterControls({
           />
         ))}
       </FilterGroup>
-      <FilterGroup label="Customer-facing">
+      <FilterGroup label="Work exposure">
         {facingOptions.map((facing) => (
           <CheckboxOption
             key={facing}
-            label={customerFacingLabel(facing)}
+            label={exposureLabels[facing]}
             checked={filters.customerFacing.includes(facing)}
             onChange={() => setFilters(toggleList(filters, "customerFacing", facing))}
           />
@@ -209,7 +229,7 @@ function FilterControls({
           aria-label="Minimum base compensation in USD"
           onInput={(event) => {
             const value = Number((event.currentTarget as HTMLInputElement).value);
-            setFilters({ ...filters, compFloor: value === 0 ? null : value });
+            setFilters({ ...filters, compFloor: value === 0 ? null : value, page: 1 });
           }}
         />
         <span class="mono micro">{filters.compFloor ? `$${Math.round(filters.compFloor / 1000)}k+` : "Any base"}</span>
@@ -241,7 +261,7 @@ function FilterControls({
               type="radio"
               name="posted"
               checked={filters.posted === value}
-              onChange={() => setFilters({ ...filters, posted: value })}
+              onChange={() => setFilters({ ...filters, posted: value, page: 1 })}
             />
             <span>{label}</span>
           </label>
@@ -249,6 +269,23 @@ function FilterControls({
       </FilterGroup>
     </div>
   );
+}
+
+function sourceProviderLabel(source: JobWithCompany["source_provider"]) {
+  const labels: Record<string, string> = {
+    greenhouse: "Greenhouse",
+    lever: "Lever",
+    ashby: "Ashby",
+    workday: "Workday",
+    workable: "Workable",
+    custom: "company careers",
+    hn_who_is_hiring: "HN",
+    manual: "manual review",
+    indeed: "Indeed",
+    wellfound: "Wellfound"
+  };
+
+  return labels[source] ?? source;
 }
 
 function companyInitials(name: string) {
@@ -309,11 +346,11 @@ function JobRow({ job }: { job: JobWithCompany }) {
         </div>
       </div>
       <div class="job-hidden-line">
-        <span>{customerFacingLabel(job.customer_facing_pct_band)}</span>
+        <span>{roleSignalLabel(job)}</span>
         <span>·</span>
         <span>{job.benefits_tags.length ? job.benefits_tags.join(" · ") : "Benefits not listed"}</span>
         <span>·</span>
-        <span>Apply</span>
+        <span>Source: {sourceProviderLabel(job.source_provider)}</span>
       </div>
     </a>
   );
@@ -326,6 +363,19 @@ export default function FilterRail({ jobs, companies, addedThisWeek }: Props) {
     () => Array.from(new Set(companies.flatMap((company) => company.industry_tags))).sort(),
     [companies]
   );
+  const cityOptions = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const job of jobs) {
+      for (const city of job.cities) {
+        counts.set(city, (counts.get(city) ?? 0) + 1);
+      }
+    }
+
+    return Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([city]) => city)
+      .slice(0, 28);
+  }, [jobs]);
   const benefitOptions = useMemo(() => {
     const values = Array.from(new Set(jobs.flatMap((job) => job.benefits_tags))).sort();
     return [
@@ -335,7 +385,17 @@ export default function FilterRail({ jobs, companies, addedThisWeek }: Props) {
     ].slice(0, 12);
   }, [jobs]);
   const filteredJobs = useMemo(() => filterJobs(jobs, filters), [jobs, filters]);
+  const totalPages = Math.max(1, Math.ceil(filteredJobs.length / pageSize));
+  const currentPage = Math.min(filters.page, totalPages);
+  const startIndex = (currentPage - 1) * pageSize;
+  const pagedJobs = filteredJobs.slice(startIndex, startIndex + pageSize);
   const active = activeFilterCount(filters);
+
+  useEffect(() => {
+    if (filters.page > totalPages) {
+      setFilters({ ...filters, page: totalPages });
+    }
+  }, [filters, setFilters, totalPages]);
 
   return (
     <div>
@@ -347,7 +407,7 @@ export default function FilterRail({ jobs, companies, addedThisWeek }: Props) {
         </p>
       </div>
       <div class="list-toolbar">
-        <SearchInput value={filters.q} onInput={(q) => setFilters({ ...filters, q })} />
+        <SearchInput value={filters.q} onInput={(q) => setFilters({ ...filters, q, page: 1 })} />
         <div class="toolbar-row">
           <button
             class="filter-dropdown-button"
@@ -363,7 +423,7 @@ export default function FilterRail({ jobs, companies, addedThisWeek }: Props) {
               value={filters.sort}
               onChange={(event) => {
                 const sort = (event.currentTarget as HTMLSelectElement).value as FilterState["sort"];
-                setFilters({ ...filters, sort });
+                setFilters({ ...filters, sort, page: 1 });
               }}
             >
               {sortOptions.map(([value, label]) => (
@@ -384,6 +444,7 @@ export default function FilterRail({ jobs, companies, addedThisWeek }: Props) {
               setFilters={setFilters}
               industryOptions={industryOptions}
               benefitOptions={benefitOptions}
+              cityOptions={cityOptions}
             />
           </div>
         )}
@@ -391,13 +452,36 @@ export default function FilterRail({ jobs, companies, addedThisWeek }: Props) {
       <main aria-live="polite">
         <div class="job-list">
           {filteredJobs.length > 0 ? (
-            filteredJobs.map((job) => <JobRow key={job.slug} job={job} />)
+            pagedJobs.map((job) => <JobRow key={job.slug} job={job} />)
           ) : (
             <div class="empty-state">
               <p>No roles match those filters.</p>
             </div>
           )}
         </div>
+        {filteredJobs.length > pageSize && (
+          <nav class="pagination" aria-label="Job list pagination">
+            <button
+              type="button"
+              class="pagination-button"
+              disabled={currentPage === 1}
+              onClick={() => setFilters({ ...filters, page: Math.max(1, currentPage - 1) })}
+            >
+              Previous
+            </button>
+            <span class="mono">
+              {startIndex + 1}-{Math.min(startIndex + pageSize, filteredJobs.length)} of {filteredJobs.length} · Page {currentPage} of {totalPages}
+            </span>
+            <button
+              type="button"
+              class="pagination-button"
+              disabled={currentPage === totalPages}
+              onClick={() => setFilters({ ...filters, page: Math.min(totalPages, currentPage + 1) })}
+            >
+              Next
+            </button>
+          </nav>
+        )}
       </main>
     </div>
   );

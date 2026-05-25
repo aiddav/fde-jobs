@@ -48,6 +48,25 @@ export function customerFacingLabel(band: Job["customer_facing_pct_band"]) {
   return facingLabels[band] ?? band;
 }
 
+export function roleSignalLabel(job: Pick<Job, "role_family" | "travel_pct_band" | "location_type">) {
+  if (job.travel_pct_band === "high_50_plus") {
+    return "Field-heavy deployment";
+  }
+  if (job.role_family === "fde" || job.role_family === "deployed_engineer") {
+    return "Build + deployment ownership";
+  }
+  if (job.role_family === "solutions_engineer") {
+    return "Solution design + technical sales";
+  }
+  if (job.role_family === "ai_engineer") {
+    return "Production AI implementation";
+  }
+  if (job.location_type === "remote") {
+    return "Remote customer delivery";
+  }
+  return "Customer workflow engineering";
+}
+
 export function locationTypeLabel(type: Job["location_type"]) {
   return type[0].toUpperCase() + type.slice(1);
 }

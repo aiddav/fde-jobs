@@ -13,6 +13,7 @@ type Props = {
   marketStats?: MarketStats;
   postingStats?: PostingStats;
   ogImage?: string;
+  showSurveyBanner?: boolean;
 };
 
 const {
@@ -23,7 +24,8 @@ const {
   addedThisWeek = 0,
   marketStats,
   postingStats,
-  ogImage
+  ogImage,
+  showSurveyBanner = false
 } = Astro.props;
 
 const plausibleDomain = import.meta.env.PLAUSIBLE_DOMAIN;
@@ -77,6 +79,19 @@ const navItems = [
   </head>
   <body>
     <Ticker items={tickerItems} openRoleCount={openRoleCount} addedThisWeek={addedThisWeek} marketStats={marketStats} postingStats={postingStats} />
+    {
+      showSurveyBanner && (
+        <a
+          class="survey-banner"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdu3qisLpSJ67jglnV9onPTNXWl6uav3NbnhArOYy8bMAV1Uw/viewform"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>Forward deployed engineer?</span>
+          <strong>Join the FDE role survey ↗</strong>
+        </a>
+      )
+    }
     <nav class="site-shell section-nav" aria-label="Primary sections">
       {navItems.map((item) => (
         <a href={item.href} aria-current={item.active ? "page" : undefined}>{item.label}</a>

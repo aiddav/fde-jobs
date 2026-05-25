@@ -17,6 +17,8 @@
   --positive-bg: #E9F5EC;
   --negative: #B42318;
   --negative-bg: #FCEBE9;
+  --banner-bg: #EEF4FF;
+  --banner-ink: #1D3E8A;
   --font-sans: "Geist Sans", sans-serif;
   --font-mono: "Geist Mono", monospace;
   --font-accent: "Fraunces", serif;
@@ -35,6 +37,8 @@
     --positive-bg: #17351F;
     --negative: #F28B82;
     --negative-bg: #3B1714;
+    --banner-bg: #141B2B;
+    --banner-ink: #B9C8FF;
   }
 }
 
@@ -50,6 +54,8 @@
   --positive-bg: #E9F5EC;
   --negative: #B42318;
   --negative-bg: #FCEBE9;
+  --banner-bg: #EEF4FF;
+  --banner-ink: #1D3E8A;
 }
 
 :root[data-theme="dark"] {
@@ -64,6 +70,8 @@
   --positive-bg: #17351F;
   --negative: #F28B82;
   --negative-bg: #3B1714;
+  --banner-bg: #141B2B;
+  --banner-ink: #B9C8FF;
 }
 
 * {
@@ -595,6 +603,33 @@ img {
   text-underline-offset: 3px;
 }
 
+.survey-banner {
+  display: flex;
+  min-height: 56px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--line-soft);
+  padding: 10px 20px;
+  background: var(--banner-bg);
+  color: var(--banner-ink);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.survey-banner strong {
+  color: var(--banner-ink);
+  font-weight: 600;
+}
+
+.survey-banner:hover strong {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
 @keyframes ticker-slide {
   from {
     transform: translateX(0);
@@ -838,17 +873,47 @@ img {
 }
 
 .job-hidden-line {
-  max-height: 0;
-  overflow: hidden;
+  min-height: 18px;
+  margin-top: 7px;
+  overflow: clip;
   opacity: 0;
-  transition: max-height 80ms ease, opacity 80ms ease;
+  transform: translateY(-2px);
+  visibility: hidden;
+  transition: opacity 70ms ease, transform 70ms ease, visibility 70ms ease;
 }
 
 .job-row:hover .job-hidden-line,
 .job-row:focus-within .job-hidden-line {
-  max-height: 26px;
-  margin-top: 8px;
   opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+  color: var(--ink-muted);
+  font-size: 0.8125rem;
+}
+
+.pagination-button {
+  min-height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0 12px;
+  background: var(--bg-elev);
+  color: var(--ink);
+  font-size: 0.8125rem;
+}
+
+.pagination-button:disabled {
+  color: var(--ink-subtle);
+  cursor: not-allowed;
 }
 
 @media (min-width: 980px) {

@@ -3198,5 +3198,165 @@
     "custom_scraper_id": null,
     "is_active": true,
     "notes": null
+  },
+  {
+    "slug": "arize-ai",
+    "name": "Arize AI",
+    "logo_url": null,
+    "stage": "series_c",
+    "headcount_band": "201-500",
+    "industry_tags": [
+      "ai infra",
+      "observability"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": "Aggregator-sourced listing; company stage checked against 2025 Series C announcement."
+  },
+  {
+    "slug": "cbre",
+    "name": "CBRE",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "real estate",
+      "enterprise operations"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": "Aggregator-sourced listing."
+  },
+  {
+    "slug": "deloitte",
+    "name": "Deloitte",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "consulting",
+      "enterprise ai"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": "Aggregator-sourced listing."
+  },
+  {
+    "slug": "distyl-ai",
+    "name": "Distyl AI",
+    "logo_url": null,
+    "stage": "series_a",
+    "headcount_band": "51-200",
+    "industry_tags": [
+      "ai applications",
+      "enterprise"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": "Aggregator-sourced listing; stage checked against reported Series A funding."
+  },
+  {
+    "slug": "google-cloud",
+    "name": "Google Cloud",
+    "logo_url": null,
+    "stage": "public",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "cloud",
+      "enterprise ai"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": "Aggregator-sourced listing."
+  },
+  {
+    "slug": "gowan-usa",
+    "name": "Gowan USA",
+    "logo_url": null,
+    "stage": "bootstrapped",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "agriculture",
+      "industrial operations"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": "Aggregator-sourced listing."
+  },
+  {
+    "slug": "obviant",
+    "name": "Obviant",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "defense",
+      "data"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": "Aggregator-sourced listing."
+  },
+  {
+    "slug": "p-1-ai",
+    "name": "P-1 AI",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "11-50",
+    "industry_tags": [
+      "vertical ai",
+      "engineering"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": "Aggregator-sourced listing; Wellfound marks the company as early stage."
+  },
+  {
+    "slug": "rational-dynamics",
+    "name": "Rational Dynamics",
+    "logo_url": null,
+    "stage": "seed",
+    "headcount_band": "1-10",
+    "industry_tags": [
+      "financial services",
+      "agentic ai"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": "Aggregator-sourced listing; Wellfound describes the company as early stage."
+  },
+  {
+    "slug": "vercel",
+    "name": "Vercel",
+    "logo_url": null,
+    "stage": "series_d_plus",
+    "headcount_band": "1000+",
+    "industry_tags": [
+      "developer tools",
+      "ai infra"
+    ],
+    "ats_provider": null,
+    "ats_slug": null,
+    "custom_scraper_id": null,
+    "is_active": true,
+    "notes": "Aggregator-sourced listing; stage checked against Vercel's Series E/F funding history."
   }
 ]
