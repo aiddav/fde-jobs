@@ -68,7 +68,7 @@ export const roleArticles: RoleArticle[] = [
     description:
       "The traits, operating habits, and tradeoffs that separate strong FDEs from generic customer-facing engineers.",
     readingTime: "6 min",
-    updatedAt: "2026-05-24",
+    updatedAt: "2026-05-25",
     sections: [
       {
         heading: "They are builders first",
@@ -78,10 +78,27 @@ export const roleArticles: RoleArticle[] = [
         ]
       },
       {
-        heading: "They can hold the customer problem in their head",
+        heading: "They optimize for outcomes, not the statement of work",
+        paragraphs: [
+          "The job is not to satisfy the literal SOW and disappear. A strong FDE keeps asking whether the customer's actual operating problem has been solved.",
+          "That may mean challenging the scope, simplifying a requested feature, or building a different path if it gets the customer to the outcome faster. The written ask is often only a proxy for the real workflow problem."
+        ],
         bullets: [
-          "They ask what business outcome the system must change, not just what feature the customer requested.",
-          "They learn the customer's operating context quickly: systems, incentives, politics, compliance, and failure modes.",
+          "Translate deliverables into customer outcomes and measurable change.",
+          "Notice when the requested feature would not actually move the business result.",
+          "Keep engineering judgment in the loop instead of treating implementation as order-taking."
+        ]
+      },
+      {
+        heading: "They deeply understand the customer problem",
+        paragraphs: [
+          "Nabeel Qureshi's reflection on Palantir captures the core field lesson: FDEs gained leverage by getting close enough to understand how customers actually worked, not just by collecting requirements.",
+          "Good FDEs become fluent in the customer's world: workflows, incentives, constraints, data, institutional language, and what failure looks like. They spend enough time with users to understand why the problem exists, not only what the customer says they want."
+        ],
+        bullets: [
+          "Learn the customer's operational context before designing the system.",
+          "Build trust with users close enough to see whether the tool changes the work.",
+          "Bring that context back into product and platform decisions.",
           "They can explain technical tradeoffs to executives without losing the engineering truth."
         ]
       },
@@ -107,6 +124,10 @@ export const roleArticles: RoleArticle[] = [
       {
         label: "a16z: Forward-deployed job titles",
         url: "https://a16z.com/forward-deployed-job-titles/"
+      },
+      {
+        label: "Nabeel Qureshi: Reflections on Palantir",
+        url: "https://nabeelqu.co/reflections-on-palantir"
       }
     ]
   },
