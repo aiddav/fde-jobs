@@ -166,8 +166,12 @@ export function getRoleArticle(slug: string) {
   return roleArticles.find((article) => article.slug === slug);
 }
 
+const baseHref = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
 export function roleArticlePath(slug: string) {
-  return `${import.meta.env.BASE_URL}content/${slug}/`;
+  return `${baseHref}content/${slug}/`;
 }
 
-export const roleHubPath = `${import.meta.env.BASE_URL}content/`;
+export const roleHubPath = `${baseHref}content/`;

@@ -30,7 +30,9 @@ const plausibleDomain = import.meta.env.PLAUSIBLE_DOMAIN;
 const siteRoot = (Astro.site ?? new URL(import.meta.env.SITE_URL ?? "https://aiddav.github.io/fde-jobs")).toString();
 const siteBase = siteRoot.endsWith("/") ? siteRoot : `${siteRoot}/`;
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
-const baseHref = import.meta.env.BASE_URL;
+const baseHref = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
 const canonicalPath = Astro.url.pathname
   .replace(new RegExp(`^${basePath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}/?`), "")
   .replace(/^\//, "");
