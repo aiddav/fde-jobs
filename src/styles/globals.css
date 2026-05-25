@@ -256,6 +256,53 @@ img {
   color: var(--ink-muted);
 }
 
+.growth-core {
+  display: grid;
+  gap: 18px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+}
+
+.growth-core strong {
+  display: block;
+  margin: 8px 0;
+  font-family: var(--font-mono);
+  font-size: 3.75rem;
+  font-weight: 500;
+  line-height: 0.95;
+}
+
+.growth-core p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--ink-muted);
+}
+
+.growth-change-stack {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  gap: 8px;
+}
+
+.growth-change-stack .metric-change {
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 6px 8px;
+}
+
+@media (min-width: 760px) {
+  .growth-core {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+  }
+
+  .growth-change-stack {
+    justify-content: end;
+  }
+}
+
 .metric-change {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
@@ -300,6 +347,91 @@ img {
   margin: 0 0 16px;
   font-size: 1rem;
   font-weight: 500;
+}
+
+.timeseries-panel {
+  border-bottom: 1px solid var(--line);
+  padding: 30px 0 24px;
+}
+
+.chart-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.chart-heading h2 {
+  margin: 5px 0 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.week-chart {
+  display: grid;
+  grid-template-columns: repeat(26, minmax(9px, 1fr));
+  align-items: end;
+  gap: 4px;
+  min-height: 260px;
+  border-left: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line);
+  padding: 0 0 8px 8px;
+}
+
+.week-bar {
+  display: grid;
+  align-items: end;
+  gap: 6px;
+  min-width: 0;
+  height: 240px;
+}
+
+.week-bar > span {
+  align-self: end;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-align: center;
+}
+
+.week-bar > div {
+  display: flex;
+  align-items: end;
+  height: 180px;
+  background: var(--line-soft);
+}
+
+.week-bar > div > span {
+  display: block;
+  width: 100%;
+  height: var(--bar);
+  background: var(--ink);
+}
+
+.week-bar strong {
+  overflow: hidden;
+  color: var(--ink-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 400;
+  text-align: center;
+  text-overflow: clip;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+}
+
+@media (max-width: 640px) {
+  .growth-core strong {
+    font-size: 2.5rem;
+  }
+
+  .week-chart {
+    gap: 3px;
+    overflow-x: auto;
+    grid-template-columns: repeat(26, 18px);
+  }
 }
 
 .bar-chart {
