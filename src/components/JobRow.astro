@@ -10,7 +10,6 @@ import {
   stageLabel
 } from "../lib/format";
 import { leadFormUrl } from "../lib/leadCapture";
-import { companyInitials } from "../lib/logos";
 
 type Props = {
   job: JobWithCompany;
@@ -33,16 +32,12 @@ const sourceLabels: Record<string, string> = {
   wellfound: "Wellfound"
 };
 const sourceLabel = sourceLabels[job.source_provider] ?? job.source_provider;
-const initials = companyInitials(job.company.name);
 ---
 
 <article class="job-row">
   <a class="job-row-link" href={job.apply_url} target="_blank" rel="noopener noreferrer" aria-label={`Apply for ${job.title} at ${job.company.name}`}>
     <div class="job-row-main">
       <div class="job-company-cell">
-        <span class="company-logo" aria-hidden="true">
-          <span class="company-logo-fallback">{initials}</span>
-        </span>
         <div class="job-company-line">
           <span class="job-company-name">{job.company.name}</span>
           <span class="chip stage">{stageLabel(job.company.stage)}</span>

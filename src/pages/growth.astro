@@ -216,16 +216,7 @@ const breakdowns = [
     </section>
 
     <section class="source-note">
-      <h2>Methodology</h2>
-      <p>
-        The primary metric is <span class="mono">{liveJobs.length}</span> current live roles indexed by this board. It does not add the Indeed benchmark, because that would double-count market signal.
-      </p>
-      <p>
-        WoW and MoM movement use stored snapshots from <span class="mono">src/content/data/history.json</span> when a comparison point exists. Until then, the fallback compares current live roles with the subset first seen before each cutoff.
-      </p>
-      <p>
-        The maintained Indeed tracker is displayed separately as a market benchmark for exact-title Forward Deployed Engineer descriptions.
-      </p>
+      <p>Source: Indeed Jobs "forward deployed engineer" by date of listing.</p>
     </section>
   </main>
 </BaseLayout>

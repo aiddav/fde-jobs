@@ -698,7 +698,8 @@ img {
 }
 
 .filter-dropdown-button,
-.sort-control select {
+.sort-control select,
+.location-control select {
   min-height: 34px;
   border: 1px solid var(--line);
   border-radius: 4px;
@@ -711,7 +712,8 @@ img {
   padding: 0 12px;
 }
 
-.sort-control {
+.sort-control,
+.location-control {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -719,13 +721,15 @@ img {
   font-size: 0.8125rem;
 }
 
-.sort-control span {
+.sort-control span,
+.location-control span {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   text-transform: uppercase;
 }
 
-.sort-control select {
+.sort-control select,
+.location-control select {
   padding: 0 28px 0 10px;
 }
 
@@ -850,27 +854,6 @@ img {
   gap: 10px;
 }
 
-.company-logo {
-  position: relative;
-  display: grid;
-  width: 28px;
-  height: 28px;
-  min-width: 28px;
-  overflow: hidden;
-  place-items: center;
-  border: 1px solid var(--line);
-  background: var(--bg-elev);
-  color: var(--ink-muted);
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  line-height: 1;
-}
-
-.company-logo-fallback {
-  grid-area: 1 / 1;
-}
-
 .job-company-name {
   overflow: hidden;
   color: var(--ink);
@@ -972,7 +955,7 @@ img {
   }
 
   .job-row-main {
-    grid-template-columns: minmax(160px, 1.4fr) minmax(260px, 2.2fr) minmax(160px, 1fr) 150px;
+    grid-template-columns: minmax(260px, 1.5fr) minmax(260px, 1.9fr) minmax(160px, 1fr) 150px;
     align-items: center;
   }
 
@@ -1030,16 +1013,19 @@ img {
   }
 
   .filter-dropdown-button,
+  .location-control,
   .sort-control,
   .button-ghost {
     width: 100%;
   }
 
-  .sort-control {
+  .sort-control,
+  .location-control {
     justify-content: space-between;
   }
 
-  .sort-control select {
+  .sort-control select,
+  .location-control select {
     min-width: 0;
   }
 
@@ -1056,12 +1042,6 @@ img {
   .job-company-cell {
     align-items: flex-start;
     gap: 8px;
-  }
-
-  .company-logo {
-    width: 30px;
-    height: 30px;
-    min-width: 30px;
   }
 
   .job-company-line {
