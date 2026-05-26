@@ -8,6 +8,8 @@ import {
   filtersToParams,
   parseFilters
 } from "../lib/filters";
+import { leadSignupPath } from "../lib/leadCapture";
+import { companyInitials, companyLogoUrl } from "../lib/logos";
 import {
   describeLocations,
   formatComp,
@@ -139,13 +141,15 @@ function FilterControls({
   setFilters,
   industryOptions,
   benefitOptions,
-  cityOptions
+  cityOptions,
+  countryOptions
 }: {
   filters: FilterState;
   setFilters: (filters: FilterState) => void;
   industryOptions: string[];
   benefitOptions: string[];
   cityOptions: string[];
+  countryOptions: string[];
 }) {
   return (
     <div class="filters-grid">
@@ -186,6 +190,16 @@ function FilterControls({
             label={city}
             checked={filters.city.includes(city)}
             onChange={() => setFilters(toggleList(filters, "city", city))}
+          />
+        ))}
+      </FilterGroup>
+      <FilterGroup label="Country">
+        {countryOptions.map((country) => (
+          <CheckboxOption
+            key={country}
+            label={country}
+            checked={filters.country.includes(country)}
+            onChange={() => setFilters(toggleList(filters, "country", country))}
           />
         ))}
       </FilterGroup>
@@ -288,20 +302,14 @@ function sourceProviderLabel(source: JobWithCompany["source_provider"]) {
   return labels[source] ?? source;
 }
 
-function companyInitials(name: string) {
-  return name
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0])
-    .join("")
-    .toUpperCase();
-}
-
 function CompanyLogo({ company }: { company: Company }) {
+  const [broken, setBroken] = useState(false);
+  const logoUrl = broken ? null : companyLogoUrl(company);
+
   return (
     <span class="company-logo" aria-hidden="true">
-      {company.logo_url ? <img src={company.logo_url} alt="" loading="lazy" /> : <span>{companyInitials(company.name)}</span>}
+      <span class="company-logo-fallback">{companyInitials(company.name)}</span>
+      {logoUrl && <img src={logoUrl} alt="" loading="lazy" onError={() => setBroken(true)} />}
     </span>
   );
 }
@@ -313,7 +321,8 @@ function JobRow({ job }: { job: JobWithCompany }) {
   const newlyPosted = isNew(job.posted_at);
 
   return (
-    <a class="job-row" href={job.apply_url} target="_blank" rel="noopener noreferrer">
+    <article class="job-row">
+      <a class="job-row-link" href={job.apply_url} target="_blank" rel="noopener noreferrer" aria-label={`Apply for ${job.title} at ${job.company.name}`}>
       <div class="job-row-main">
         <div class="job-company-cell">
           <CompanyLogo company={job.company} />
@@ -345,14 +354,17 @@ function JobRow({ job }: { job: JobWithCompany }) {
           </span>
         </div>
       </div>
+      </a>
       <div class="job-hidden-line">
         <span>{roleSignalLabel(job)}</span>
         <span>·</span>
         <span>{job.benefits_tags.length ? job.benefits_tags.join(" · ") : "Benefits not listed"}</span>
         <span>·</span>
         <span>Source: {sourceProviderLabel(job.source_provider)}</span>
+        <span>·</span>
+        <a class="job-referral-link" href={leadSignupPath}>Referral opportunities</a>
       </div>
-    </a>
+    </article>
   );
 }
 
@@ -375,6 +387,19 @@ export default function FilterRail({ jobs, companies, addedThisWeek }: Props) {
       .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
       .map(([city]) => city)
       .slice(0, 28);
+  }, [jobs]);
+  const countryOptions = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const job of jobs) {
+      for (const country of job.countries) {
+        counts.set(country, (counts.get(country) ?? 0) + 1);
+      }
+    }
+
+    return Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([country]) => country)
+      .slice(0, 24);
   }, [jobs]);
   const benefitOptions = useMemo(() => {
     const values = Array.from(new Set(jobs.flatMap((job) => job.benefits_tags))).sort();
@@ -405,6 +430,10 @@ export default function FilterRail({ jobs, companies, addedThisWeek }: Props) {
         <p class="page-subhead">
           <span class="mono">{filteredJobs.length} of {jobs.length} roles · {addedThisWeek} added this week</span>
         </p>
+        <div class="hero-actions">
+          <a class="button-primary" href={leadSignupPath}>Sign up for exclusive FDE job offers</a>
+          <a class="button-secondary" href={`${leadSignupPath}#fields`}>Referral opportunities</a>
+        </div>
       </div>
       <div class="list-toolbar">
         <SearchInput value={filters.q} onInput={(q) => setFilters({ ...filters, q, page: 1 })} />
@@ -445,6 +474,7 @@ export default function FilterRail({ jobs, companies, addedThisWeek }: Props) {
               industryOptions={industryOptions}
               benefitOptions={benefitOptions}
               cityOptions={cityOptions}
+              countryOptions={countryOptions}
             />
           </div>
         )}

@@ -134,14 +134,23 @@ export const marketStatsSchema = z.object({
   notes: z.string().nullable()
 });
 
+export const historicalSnapshotSchema = z.object({
+  date: isoDateString,
+  live_role_count: z.number().int().nonnegative(),
+  source: z.literal("site_live_jobs"),
+  notes: z.string().nullable()
+});
+
 export const companiesSchema = z.array(companySchema);
 export const jobsSchema = z.array(jobSchema);
 export const tickerSchema = z.array(tickerItemSchema);
+export const historySchema = z.array(historicalSnapshotSchema);
 
 export type Company = z.infer<typeof companySchema>;
 export type Job = z.infer<typeof jobSchema>;
 export type TickerItem = z.infer<typeof tickerItemSchema>;
 export type MarketStats = z.infer<typeof marketStatsSchema>;
+export type HistoricalSnapshot = z.infer<typeof historicalSnapshotSchema>;
 export type Stage = z.infer<typeof stageSchema>;
 export type RoleFamily = z.infer<typeof roleFamilySchema>;
 export type LocationType = z.infer<typeof locationTypeSchema>;

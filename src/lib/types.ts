@@ -1,6 +1,7 @@
 export type {
   Company,
   CustomerFacingBand,
+  HistoricalSnapshot,
   Job,
   JobStatus,
   LocationType,
@@ -18,6 +19,7 @@ export type JobWithCompany = import("./schema").Job & {
   search_text: string;
   regions: string[];
   cities: string[];
+  countries: string[];
   continents: string[];
   posted_ts: number;
 };
@@ -29,6 +31,7 @@ export type FilterState = {
   locationType: string[];
   region: string[];
   city: string[];
+  country: string[];
   continent: string[];
   travel: string[];
   customerFacing: string[];

@@ -180,6 +180,86 @@ export const roleArticles: RoleArticle[] = [
         url: "https://a16z.com/services-led-growth/"
       }
     ]
+  },
+  {
+    slug: "how-to-get-an-fde-role",
+    eyebrow: "Candidate playbook",
+    title: "How to Get an FDE Role",
+    description:
+      "A practical guide to positioning yourself for Forward Deployed Engineer roles, preparing for interviews, and using referrals well.",
+    readingTime: "8 min",
+    updatedAt: "2026-05-26",
+    sections: [
+      {
+        heading: "What an FDE does",
+        paragraphs: [
+          "An FDE turns ambiguous customer problems into working software. The work usually blends product engineering, solutions architecture, implementation, and strategic customer discovery.",
+          "The strongest candidates can move from a messy workflow conversation into a technical design, ship the first version, instrument whether it works, and feed the learning back into the product."
+        ]
+      },
+      {
+        heading: "Why FDE roles are growing",
+        paragraphs: [
+          "AI products often need real deployment work before customers see durable value. Data access, permissions, workflow redesign, evals, and reliability all happen inside the customer's operating context.",
+          "That makes customer-proximate engineers more valuable. Companies want people who can make AI systems useful in production, not just demo them."
+        ]
+      },
+      {
+        heading: "Skills companies look for",
+        bullets: [
+          "Strong software engineering fundamentals across APIs, data, auth, cloud, and debugging.",
+          "Production AI experience: RAG, agents, evals, observability, model APIs, and failure analysis.",
+          "Customer judgment: asking sharper questions, reducing scope, and understanding the real workflow.",
+          "Written communication: crisp design docs, tradeoff explanations, and customer-facing updates.",
+          "Taste for outcomes over activity: the point is changed customer behavior, not a longer statement of work."
+        ]
+      },
+      {
+        heading: "How to position your background",
+        paragraphs: [
+          "If you come from product engineering, emphasize the moments where you owned messy requirements, worked directly with users, or made product tradeoffs under uncertainty.",
+          "If you come from solutions engineering or consulting, emphasize the systems you actually built, automated, debugged, or shipped. Hiring teams need to see engineering depth, not just customer polish.",
+          "If you come from data or ML, frame your experience around production reliability: how you evaluated outputs, handled edge cases, integrated with systems of record, and measured whether the workflow improved."
+        ]
+      },
+      {
+        heading: "How to prepare for interviews",
+        bullets: [
+          "Prepare two concrete stories about ambiguous customer problems you turned into shipped systems.",
+          "Be ready to whiteboard a customer workflow and identify what should be productized versus kept custom.",
+          "Practice explaining a technical architecture to both an engineering peer and a commercial stakeholder.",
+          "Expect a build or debugging exercise. They are testing whether you can move quickly without losing judgment.",
+          "Bring a point of view on AI deployment: evals, data boundaries, model choice, latency, cost, and human review."
+        ]
+      },
+      {
+        heading: "How referrals help",
+        paragraphs: [
+          "FDE roles are trust-heavy. Hiring managers want evidence that you can represent the company in high-stakes customer contexts while still being a serious engineer.",
+          "A warm referral helps because it can quickly answer the hardest questions: does this person ship, do they understand customers, and would we trust them in the field?"
+        ]
+      },
+      {
+        heading: "Get on the shortlist",
+        paragraphs: [
+          "The best opportunities are often not the most visible postings. Join the candidate list if you want to be considered for exclusive FDE job offers, warm referrals, and private searches."
+        ]
+      }
+    ],
+    sources: [
+      {
+        label: "a16z: Services-led growth",
+        url: "https://a16z.com/services-led-growth/"
+      },
+      {
+        label: "Nabeel Qureshi: Reflections on Palantir",
+        url: "https://nabeelqu.co/reflections-on-palantir"
+      },
+      {
+        label: "Pave: Is the Forward Deployed Engineer on the rise?",
+        url: "https://www.pave.com/blog-posts/forward-deployed-engineer-on-the-rise"
+      }
+    ]
   }
 ];
 

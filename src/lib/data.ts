@@ -1,9 +1,10 @@
 import companiesJson from "../content/data/companies.json";
+import historyJson from "../content/data/history.json";
 import jobsJson from "../content/data/jobs.json";
 import marketJson from "../content/data/market.json";
 import tickerJson from "../content/data/ticker.json";
-import { companiesSchema, jobsSchema, marketStatsSchema, tickerSchema } from "./schema";
-import type { Company, Job, MarketStats, TickerItem } from "./types";
+import { companiesSchema, historySchema, jobsSchema, marketStatsSchema, tickerSchema } from "./schema";
+import type { Company, HistoricalSnapshot, Job, MarketStats, TickerItem } from "./types";
 
 export function getCompanies(): Company[] {
   return companiesSchema.parse(companiesJson).sort((a, b) => a.name.localeCompare(b.name));
@@ -27,6 +28,10 @@ export function getTickerItems(): TickerItem[] {
 
 export function getMarketStats(): MarketStats {
   return marketStatsSchema.parse(marketJson);
+}
+
+export function getHistoricalSnapshots(): HistoricalSnapshot[] {
+  return historySchema.parse(historyJson).sort((a, b) => a.date.localeCompare(b.date));
 }
 
 export function companyMap(companies: Company[]) {

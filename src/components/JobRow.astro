@@ -9,6 +9,8 @@ import {
   postedAgo,
   stageLabel
 } from "../lib/format";
+import { leadSignupPath } from "../lib/leadCapture";
+import { companyInitials, companyLogoUrl } from "../lib/logos";
 
 type Props = {
   job: JobWithCompany;
@@ -31,52 +33,52 @@ const sourceLabels: Record<string, string> = {
   wellfound: "Wellfound"
 };
 const sourceLabel = sourceLabels[job.source_provider] ?? job.source_provider;
-const initials = job.company.name
-  .split(/\s+/)
-  .filter(Boolean)
-  .slice(0, 2)
-  .map((part) => part[0])
-  .join("")
-  .toUpperCase();
+const initials = companyInitials(job.company.name);
+const logoUrl = companyLogoUrl(job.company);
 ---
 
-<a class="job-row" href={job.apply_url} target="_blank" rel="noopener noreferrer">
-  <div class="job-row-main">
-    <div class="job-company-cell">
-      <span class="company-logo" aria-hidden="true">
-        {job.company.logo_url ? <img src={job.company.logo_url} alt="" loading="lazy" /> : <span>{initials}</span>}
-      </span>
-      <div class="job-company-line">
-        <span class="job-company-name">{job.company.name}</span>
-        <span class="chip stage">{stageLabel(job.company.stage)}</span>
-        {job.is_featured && <span class="chip featured">Featured</span>}
+<article class="job-row">
+  <a class="job-row-link" href={job.apply_url} target="_blank" rel="noopener noreferrer" aria-label={`Apply for ${job.title} at ${job.company.name}`}>
+    <div class="job-row-main">
+      <div class="job-company-cell">
+        <span class="company-logo" aria-hidden="true">
+          <span class="company-logo-fallback">{initials}</span>
+          {logoUrl && <img src={logoUrl} alt="" loading="lazy" onerror="this.style.display='none'" />}
+        </span>
+        <div class="job-company-line">
+          <span class="job-company-name">{job.company.name}</span>
+          <span class="chip stage">{stageLabel(job.company.stage)}</span>
+          {job.is_featured && <span class="chip featured">Featured</span>}
+        </div>
+      </div>
+      <div>
+        <div class="job-title">{job.title}</div>
+        <div class="job-meta-line">
+          <span>{describeLocations(job)}</span>
+          {job.travel_pct_band === "high_50_plus" && <span class="chip closing">50%+ travel</span>}
+        </div>
+      </div>
+      <div class="job-tags">
+        {tags.map((tag) => <span class="chip">{tag}</span>)}
+        {overflow > 0 && <span class="chip">+{overflow}</span>}
+        {isClosingSoon(job) && <span class="chip closing">Closing soon</span>}
+      </div>
+      <div class="job-right">
+        <span class="job-comp">{formatComp(job)}</span>
+        <span class="job-date-line">
+          {newlyPosted && <span class="chip new">New</span>}
+          <span class="job-date">{postedAgo(job.posted_at)}</span>
+        </span>
       </div>
     </div>
-    <div>
-      <div class="job-title">{job.title}</div>
-      <div class="job-meta-line">
-        <span>{describeLocations(job)}</span>
-        {job.travel_pct_band === "high_50_plus" && <span class="chip closing">50%+ travel</span>}
-      </div>
-    </div>
-    <div class="job-tags">
-      {tags.map((tag) => <span class="chip">{tag}</span>)}
-      {overflow > 0 && <span class="chip">+{overflow}</span>}
-      {isClosingSoon(job) && <span class="chip closing">Closing soon</span>}
-    </div>
-    <div class="job-right">
-      <span class="job-comp">{formatComp(job)}</span>
-      <span class="job-date-line">
-        {newlyPosted && <span class="chip new">New</span>}
-        <span class="job-date">{postedAgo(job.posted_at)}</span>
-      </span>
-    </div>
-  </div>
+  </a>
   <div class="job-hidden-line">
     <span>{roleSignalLabel(job)}</span>
     <span>·</span>
     <span>{job.benefits_tags.length ? job.benefits_tags.join(" · ") : "Benefits not listed"}</span>
     <span>·</span>
     <span>Source: {sourceLabel}</span>
+    <span>·</span>
+    <a class="job-referral-link" href={leadSignupPath}>Referral opportunities</a>
   </div>
-</a>
+</article>

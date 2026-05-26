@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCompanies, getJobs, getTickerItems } from "../lib/data";
+import { countAddedThisWeek, enrichJobs } from "../lib/filters";
+import { leadCaptureFields, leadFormUrl } from "../lib/leadCapture";
+
+const companies = getCompanies();
+const jobs = getJobs();
+const liveJobs = enrichJobs(jobs, companies);
+const tickerItems = getTickerItems();
+const addedThisWeek = countAddedThisWeek(jobs);
+---
+
+<BaseLayout
+  title="Sign up for FDE job offers · FDE Jobs"
+  description="Join the FDE candidate list for exclusive Forward Deployed Engineer job offers and referral opportunities."
+  tickerItems={tickerItems}
+  openRoleCount={liveJobs.length}
+  addedThisWeek={addedThisWeek}
+>
+  <main class="detail-shell">
+    <section class="page-head">
+      <div class="eyebrow">Candidate list</div>
+      <h1 class="page-title">Sign up for exclusive FDE job offers and referral opportunities.</h1>
+      <p class="page-subhead">
+        Tell us where you are, what kind of forward-deployed work you want, and which companies you are most interested in. We use this to route warm referrals and private searches when they appear.
+      </p>
+      <div class="cta-row">
+        <a class="button-primary" href={leadFormUrl} target="_blank" rel="noopener noreferrer">Open the Google Form</a>
+        <a class="button-secondary" href={`${import.meta.env.BASE_URL}content/how-to-get-an-fde-role/`}>Read the FDE guide</a>
+      </div>
+    </section>
+
+    <section class="lead-panel" id="fields">
+      <div>
+        <span class="eyebrow">The form collects</span>
+        <h2>Enough context to match you to credible roles.</h2>
+      </div>
+      <ul class="lead-field-grid">
+        {leadCaptureFields.map((field) => <li>{field}</li>)}
+      </ul>
+      <p>
+        If file uploads are unavailable in the public Google Form, use a CV link instead. A private Drive, Dropbox, Notion, or personal-site URL works.
+      </p>
+    </section>
+  </main>
+</BaseLayout>

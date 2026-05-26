@@ -18,19 +18,19 @@ const changeText = change === null || change === undefined
 const computed = [
   {
     label: "STAT",
+    text: `${openRoleCount} CURRENT LIVE FDE ROLES · ${addedThisWeek} ADDED THIS WEEK`,
+    url: null,
+    changeClass: "neutral"
+  },
+  {
+    label: "STAT",
     text: marketStats
       ? `${marketStats.postings_count} FDE JOB DESCRIPTIONS ON INDEED · ${marketStats.current_period.toUpperCase()} ${changeText}`
       : postingStats
         ? `${postingStats.totalEstimate} EST. FDE POSTINGS · ${postingStats.currentMonthLabel} ${changeText}`
-      : `${openRoleCount} OPEN FDE ROLES · ${addedThisWeek} ADDED THIS WEEK`,
+      : `${openRoleCount} OPEN FDE ROLES`,
     url: marketStats?.source_url ?? null,
     changeClass
-  },
-  {
-    label: "STAT",
-    text: `${openRoleCount} LIVE ROLES · ${addedThisWeek} ADDED THIS WEEK`,
-    url: null,
-    changeClass: "neutral"
   },
   ...items.map((item) => ({
     label: item.kind === "milestone" ? "STAT" : item.kind === "announcement" ? "NEW" : "NEWS",

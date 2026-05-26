@@ -1,5 +1,76 @@
 [
   {
+    "slug": "towards-ai-senior-ai-engineer-forward-deployed-engineer-london-2026-05",
+    "company_slug": "towards-ai",
+    "title": "Senior AI Engineer / Forward Deployed Engineer",
+    "role_family": "fde",
+    "location_type": "hybrid",
+    "locations": [
+      "London",
+      "United Kingdom"
+    ],
+    "travel_pct_band": "low_0_25",
+    "customer_facing_pct_band": "med_25_50",
+    "comp_base_min": null,
+    "comp_base_max": null,
+    "comp_currency": "GBP",
+    "equity_offered": false,
+    "equity_note": "Compensation and equity were not published on the source page.",
+    "benefits_tags": [
+      "AI-native workflow",
+      "client delivery",
+      "finance exposure"
+    ],
+    "description_md": "Towards AI is hiring a Senior AI Engineer / Forward Deployed Engineer for its AI Engineering / Value Creation team. The role owns technical delivery of custom AI systems end-to-end: architecture, build, evaluation, hardening, production rollout, and selected forward-deployed client work for financial services, PE, portfolio company, and regulated-industry engagements.",
+    "apply_url": "https://towardsai.net/valuecreation/senior-ai-engineer/",
+    "source_provider": "custom",
+    "source_url": "https://towardsai.net/valuecreation/senior-ai-engineer/",
+    "first_seen_at": "2026-05-26T08:00:00.000Z",
+    "posted_at": "2026-05-26T08:00:00.000Z",
+    "expires_at": null,
+    "classifier_confidence": 0.98,
+    "classifier_reasoning": "The source title explicitly includes Forward Deployed Engineer and the description covers client-proximate AI system delivery.",
+    "classifier_version": "manual-2026-05-26",
+    "status": "live",
+    "is_featured": true
+  },
+  {
+    "slug": "infinit-forward-deployed-engineer-london-2026-05",
+    "company_slug": "infinit",
+    "title": "Forward Deployed Engineer",
+    "role_family": "fde",
+    "location_type": "hybrid",
+    "locations": [
+      "London",
+      "United Kingdom"
+    ],
+    "travel_pct_band": "low_0_25",
+    "customer_facing_pct_band": "high_50_plus",
+    "comp_base_min": null,
+    "comp_base_max": null,
+    "comp_currency": "GBP",
+    "equity_offered": true,
+    "equity_note": "The source lists competitive salary and equity, but does not publish a range.",
+    "benefits_tags": [
+      "equity",
+      "medical insurance",
+      "hybrid working",
+      "flexible benefits"
+    ],
+    "description_md": "INFINIT is a fintech scale-up building an AI-enabled operating system for SMEs with banking at its core. The Forward Deployed Engineer role is designed to accelerate product development through direct customer proximity, translating usage insights into shipped features while balancing product judgment, stakeholder communication, and full-stack engineering.",
+    "apply_url": "https://jobs.lever.co/infinit/fbd54961-0f9d-48ca-8009-65b71b44e176",
+    "source_provider": "lever",
+    "source_url": "https://jobs.lever.co/infinit/fbd54961-0f9d-48ca-8009-65b71b44e176",
+    "first_seen_at": "2026-05-26T08:00:00.000Z",
+    "posted_at": "2026-05-26T08:00:00.000Z",
+    "expires_at": null,
+    "classifier_confidence": 0.99,
+    "classifier_reasoning": "The title is Forward Deployed Engineer and the description explicitly combines customer proximity with rapid product engineering.",
+    "classifier_version": "manual-2026-05-26",
+    "status": "live",
+    "is_featured": true
+  },
+  {
     "slug": "anduril-forward-deployed-engineer-air-defense-fde-costa-mesa-2026-05",
     "company_slug": "anduril",
     "title": "Forward Deployed Engineer, Air Defense (FDE)",

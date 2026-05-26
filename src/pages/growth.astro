@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCompanies, getJobs, getMarketStats, getTickerItems } from "../lib/data";
+import { getCompanies, getHistoricalSnapshots, getJobs, getMarketStats, getTickerItems } from "../lib/data";
 import { countAddedThisWeek, enrichJobs } from "../lib/filters";
+import { stageLabel } from "../lib/format";
 
 type WeekPoint = {
   key: string;
@@ -14,6 +15,7 @@ const jobs = getJobs();
 const liveJobs = enrichJobs(jobs, companies);
 const tickerItems = getTickerItems();
 const marketStats = getMarketStats();
+const history = getHistoricalSnapshots();
 const addedThisWeek = countAddedThisWeek(jobs);
 
 function weekStart(date: Date) {
@@ -31,7 +33,10 @@ function formatWeek(key: string) {
   return new Intl.DateTimeFormat("en", { day: "2-digit", month: "short" }).format(new Date(`${key}T00:00:00.000Z`));
 }
 
-function pctChange(current: number, previous: number) {
+function pctChange(current: number, previous: number | null) {
+  if (previous === null) {
+    return null;
+  }
   if (previous === 0) {
     return null;
   }
@@ -40,7 +45,7 @@ function pctChange(current: number, previous: number) {
 
 function changeLabel(change: number | null, window: "WoW" | "MoM") {
   if (change === null) {
-    return `${window} n/a`;
+    return `${window} baseline`;
   }
   return `${change > 0 ? "+" : ""}${change}% ${window}`;
 }
@@ -75,14 +80,72 @@ const weeks: WeekPoint[] = Array.from({ length: 26 }, (_, index) => {
 });
 
 const latestWeek = weeks.at(-1)?.value ?? 0;
-const previousWeek = weeks.at(-2)?.value ?? 0;
-const currentFourWeeks = weeks.slice(-4).reduce((sum, point) => sum + point.value, 0);
-const previousFourWeeks = weeks.slice(-8, -4).reduce((sum, point) => sum + point.value, 0);
-const wowChange = pctChange(latestWeek, previousWeek);
-const momChange = pctChange(currentFourWeeks, previousFourWeeks);
-const coreMetric = liveJobs.length + marketStats.postings_count;
+const currentLiveRoles = liveJobs.length;
+
+function snapshotAtOrBefore(daysAgo: number) {
+  const target = new Date();
+  target.setUTCDate(target.getUTCDate() - daysAgo);
+
+  return history
+    .filter((snapshot) => new Date(snapshot.date).getTime() <= target.getTime())
+    .at(-1)?.live_role_count ?? null;
+}
+
+const wowChange = pctChange(currentLiveRoles, snapshotAtOrBefore(7));
+const momChange = pctChange(currentLiveRoles, snapshotAtOrBefore(30));
+const coreMetric = currentLiveRoles;
 const maxWeekly = Math.max(...weeks.map((point) => point.value), 1);
 const peakWeek = weeks.reduce((peak, point) => point.value > peak.value ? point : peak, weeks[0]);
+
+function countBy(values: string[]) {
+  const counts = new Map<string, number>();
+  for (const value of values) {
+    counts.set(value, (counts.get(value) ?? 0) + 1);
+  }
+
+  return Array.from(counts.entries()).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+}
+
+function seniority(title: string) {
+  const value = title.toLowerCase();
+  if (/(director|head|manager|lead)/.test(value)) {
+    return "Leadership";
+  }
+  if (/(principal|staff|senior|sr\.?)/.test(value)) {
+    return "Senior IC";
+  }
+  if (/(junior|associate|graduate|intern)/.test(value)) {
+    return "Early career";
+  }
+  return "Mid-level / unspecified";
+}
+
+const breakdowns = [
+  {
+    title: "Roles by company",
+    rows: countBy(liveJobs.map((job) => job.company.name)).slice(0, 10)
+  },
+  {
+    title: "Roles by industry",
+    rows: countBy(liveJobs.flatMap((job) => job.company.industry_tags)).slice(0, 10)
+  },
+  {
+    title: "Roles by country",
+    rows: countBy(liveJobs.flatMap((job) => job.countries)).slice(0, 10)
+  },
+  {
+    title: "Roles by seniority",
+    rows: countBy(liveJobs.map((job) => seniority(job.title)))
+  },
+  {
+    title: "Roles by remote / hybrid / onsite",
+    rows: countBy(liveJobs.map((job) => job.location_type[0].toUpperCase() + job.location_type.slice(1)))
+  },
+  {
+    title: "Roles by funding stage",
+    rows: countBy(liveJobs.map((job) => stageLabel(job.company.stage)))
+  }
+];
 ---
 
 <BaseLayout
@@ -105,12 +168,30 @@ const peakWeek = weeks.reduce((peak, point) => point.value > peak.value ? point 
         <span class="eyebrow">Core metric</span>
         <strong>{coreMetric}</strong>
         <p>
-          Combined FDE role signal from indexed job-board roles plus the exact-title Indeed job-description tracker.
+          Current live FDE roles shown on this site, counted directly from the repo-backed listings.
         </p>
       </div>
       <div class="growth-change-stack">
         <span class={`metric-change ${changeClass(wowChange)}`}>{changeLabel(wowChange, "WoW")}</span>
         <span class={`metric-change ${changeClass(momChange)}`}>{changeLabel(momChange, "MoM")}</span>
+      </div>
+    </section>
+
+    <section class="metric-grid" aria-label="FDE market benchmarks">
+      <div class="metric-card">
+        <span class="eyebrow">Indeed benchmark</span>
+        <strong>{marketStats.postings_count}</strong>
+        <p>Exact-title Forward Deployed Engineer postings in the maintained Indeed job-description tracker.</p>
+      </div>
+      <div class="metric-card">
+        <span class="eyebrow">This week</span>
+        <strong>{latestWeek}</strong>
+        <p>Live roles on the board with a posted date in the latest observed week.</p>
+      </div>
+      <div class="metric-card">
+        <span class="eyebrow">History</span>
+        <strong>{history.length}</strong>
+        <p>Stored live-role snapshots. WoW and MoM changes unlock once prior snapshots exist.</p>
       </div>
     </section>
 
@@ -133,13 +214,36 @@ const peakWeek = weeks.reduce((peak, point) => point.value > peak.value ? point 
       </div>
     </section>
 
+    <section class="chart-grid" aria-label="FDE role breakdowns">
+      {breakdowns.map((breakdown) => {
+        const max = Math.max(...breakdown.rows.map(([, value]) => value), 1);
+        return (
+          <section class="chart-panel">
+            <h2>{breakdown.title}</h2>
+            <div class="bar-chart">
+              {breakdown.rows.map(([label, value]) => (
+                <div class="bar-row" style={`--bar:${Math.max(4, Math.round((value / max) * 100))}%`}>
+                  <span>{label}</span>
+                  <div aria-hidden="true"><span></span></div>
+                  <strong>{value}</strong>
+                </div>
+              ))}
+            </div>
+          </section>
+        );
+      })}
+    </section>
+
     <section class="source-note">
       <h2>Methodology</h2>
       <p>
-        The core metric combines <span class="mono">{liveJobs.length}</span> live roles indexed by this board with <span class="mono">{marketStats.postings_count}</span> exact-title Forward Deployed Engineer job descriptions from the Indeed tracker.
+        The primary metric is <span class="mono">{liveJobs.length}</span> current live roles indexed by this board. It does not add the Indeed benchmark, because that would double-count market signal.
       </p>
       <p>
-        WoW and MoM movement are calculated from the indexed weekly posting series until the approved weekly Indeed export is added as a historical feed.
+        WoW and MoM movement are calculated from <span class="mono">src/content/data/history.json</span>. The first snapshot establishes a baseline; changes will show once at least one weekly and monthly comparison point exists.
+      </p>
+      <p>
+        The maintained Indeed tracker is displayed separately as a market benchmark for exact-title Forward Deployed Engineer descriptions.
       </p>
     </section>
   </main>

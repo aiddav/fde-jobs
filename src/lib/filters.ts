@@ -7,6 +7,7 @@ export const defaultFilters: FilterState = {
   locationType: [],
   region: [],
   city: [],
+  country: [],
   continent: [],
   travel: [],
   customerFacing: [],
@@ -127,6 +128,61 @@ export function deriveCities(locations: string[]) {
   return Array.from(cities);
 }
 
+const countryPatterns: Array<[string, RegExp]> = [
+  ["United States", /(united states|usa|u\.s\.|us remote|remote us|new york|nyc|san francisco|bay area|seattle|los angeles|austin|denver|washington|dc|boston|chicago|dallas|miami|arlington|tempe|yuma|berkeley|costa mesa|california|texas|virginia|maryland|new jersey|missouri|illinois|massachusetts|georgia|arizona|ohio|florida|philadelphia|raleigh|charlotte|minnesota)/],
+  ["United Kingdom", /(united kingdom|uk|london|england|scotland|wales)/],
+  ["France", /(france|paris)/],
+  ["Germany", /(germany|berlin|munich)/],
+  ["Ireland", /(ireland|dublin)/],
+  ["Italy", /(italy|milan)/],
+  ["Netherlands", /(netherlands|amsterdam)/],
+  ["Denmark", /(denmark|aarhus)/],
+  ["Sweden", /(sweden|stockholm)/],
+  ["Switzerland", /(switzerland|zurich|zürich)/],
+  ["Spain", /(spain|madrid)/],
+  ["Finland", /finland/],
+  ["Canada", /(canada|toronto|montreal|montréal|ottawa)/],
+  ["Singapore", /singapore/],
+  ["Japan", /(japan|tokyo)/],
+  ["Australia", /(australia|sydney|melbourne|brisbane|auckland|western australia|queensland)/],
+  ["India", /(india|bengaluru|bangalore|mumbai|delhi)/],
+  ["South Korea", /(south korea|korea|seoul)/],
+  ["Brazil", /(brazil|sao paulo|são paulo)/],
+  ["Mexico", /(mexico|mexico city)/],
+  ["Costa Rica", /costa rica/],
+  ["Israel", /(israel|herzliya)/],
+  ["United Arab Emirates", /(uae|dubai)/],
+  ["Indonesia", /indonesia/],
+  ["Vietnam", /vietnam/],
+  ["Hong Kong", /hong kong/],
+  ["Taiwan", /taiwan/]
+];
+
+export function deriveCountries(locations: string[], locationType: Job["location_type"]) {
+  const haystack = locations.join(" ").toLowerCase();
+  const countries = new Set<string>();
+
+  for (const [country, pattern] of countryPatterns) {
+    if (pattern.test(haystack)) {
+      countries.add(country);
+    }
+  }
+
+  if (locationType === "remote" && countries.size === 0) {
+    countries.add("Remote / Global");
+  }
+
+  if (countries.size === 0 && /(global|worldwide|anywhere|remote)/.test(haystack)) {
+    countries.add("Remote / Global");
+  }
+
+  if (countries.size === 0) {
+    countries.add("Other");
+  }
+
+  return Array.from(countries);
+}
+
 export const continentOptions = [
   "North America",
   "Europe",
@@ -180,6 +236,7 @@ export function enrichJobs(jobs: Job[], companies: Company[]): JobWithCompany[] 
 
       const regions = deriveRegions(job.locations, job.location_type);
       const cities = deriveCities(job.locations);
+      const countries = deriveCountries(job.locations, job.location_type);
       const continents = deriveContinents(job.locations, job.location_type);
       const searchText = [
         job.title,
@@ -188,6 +245,7 @@ export function enrichJobs(jobs: Job[], companies: Company[]): JobWithCompany[] 
         job.role_family,
         ...job.locations,
         ...cities,
+        ...countries,
         ...continents,
         ...company.industry_tags,
         ...job.benefits_tags
@@ -198,6 +256,7 @@ export function enrichJobs(jobs: Job[], companies: Company[]): JobWithCompany[] 
         company,
         regions,
         cities,
+        countries,
         continents,
         search_text: searchText,
         posted_ts: new Date(job.posted_at).getTime()
@@ -252,6 +311,7 @@ export function filterJobs(jobs: JobWithCompany[], filters: FilterState) {
       includesEvery(filters.locationType, [job.location_type]) &&
       includesEvery(filters.region, job.regions) &&
       includesEvery(filters.city, job.cities) &&
+      includesEvery(filters.country, job.countries) &&
       includesEvery(filters.continent, job.continents) &&
       includesEvery(filters.travel, [job.travel_pct_band]) &&
       includesEvery(filters.customerFacing, [job.customer_facing_pct_band]) &&
@@ -300,6 +360,7 @@ export function parseFilters(params: URLSearchParams): FilterState {
     locationType: split("locationType"),
     region: split("region"),
     city: split("city"),
+    country: split("country"),
     continent: split("continent"),
     travel: split("travel"),
     customerFacing: split("customerFacing"),
@@ -328,6 +389,7 @@ export function filtersToParams(filters: FilterState) {
   addList("locationType", filters.locationType);
   addList("region", filters.region);
   addList("city", filters.city);
+  addList("country", filters.country);
   addList("continent", filters.continent);
   addList("travel", filters.travel);
   addList("customerFacing", filters.customerFacing);
