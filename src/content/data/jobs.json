@@ -37,8 +37,8 @@
   {
     "slug": "infinit-forward-deployed-engineer-london-2026-05",
     "company_slug": "infinit",
-    "title": "Forward Deployed Engineer",
-    "role_family": "fde",
+    "title": "VP Product & Engineering",
+    "role_family": "other",
     "location_type": "hybrid",
     "locations": [
       "London",
@@ -57,15 +57,15 @@
       "hybrid working",
       "flexible benefits"
     ],
-    "description_md": "INFINIT is a fintech scale-up building an AI-enabled operating system for SMEs with banking at its core. The Forward Deployed Engineer role is designed to accelerate product development through direct customer proximity, translating usage insights into shipped features while balancing product judgment, stakeholder communication, and full-stack engineering.",
-    "apply_url": "https://jobs.lever.co/infinit/fbd54961-0f9d-48ca-8009-65b71b44e176",
+    "description_md": "INFINIT is a fintech scale-up building an AI-enabled operating system for SMEs with banking at its core. This VP Product & Engineering role owns the product and technology roadmap, AI-native product execution, engineering standards, and customer-informed delivery across the platform.",
+    "apply_url": "https://jobs.lever.co/infinit/cb24f19e-e67a-476f-b6a9-392b04989ece/apply",
     "source_provider": "lever",
-    "source_url": "https://jobs.lever.co/infinit/fbd54961-0f9d-48ca-8009-65b71b44e176",
+    "source_url": "https://jobs.lever.co/infinit/cb24f19e-e67a-476f-b6a9-392b04989ece/apply",
     "first_seen_at": "2026-05-26T08:00:00.000Z",
     "posted_at": "2026-05-26T08:00:00.000Z",
     "expires_at": null,
     "classifier_confidence": 0.99,
-    "classifier_reasoning": "The title is Forward Deployed Engineer and the description explicitly combines customer proximity with rapid product engineering.",
+    "classifier_reasoning": "The requested source now points to INFINIT's VP Product & Engineering posting. It is included as an FDE-adjacent leadership opportunity because it combines AI-native product direction, engineering ownership, and customer-informed execution.",
     "classifier_version": "manual-2026-05-26",
     "status": "live",
     "is_featured": true
@@ -13665,7 +13665,7 @@
     "classifier_reasoning": "Aggregator listing explicitly uses Forward Deployed Engineer and describes applied AI deployment with customers.",
     "classifier_version": "manual-aggregator-2026-05-25",
     "status": "live",
-    "is_featured": true
+    "is_featured": false
   },
   {
     "slug": "google-cloud-forward-deployed-engineer-applied-ai-miami-2026-05",

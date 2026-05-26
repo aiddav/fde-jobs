@@ -9,8 +9,8 @@ import {
   postedAgo,
   stageLabel
 } from "../lib/format";
-import { leadSignupPath } from "../lib/leadCapture";
-import { companyInitials, companyLogoUrl } from "../lib/logos";
+import { leadFormUrl } from "../lib/leadCapture";
+import { companyInitials } from "../lib/logos";
 
 type Props = {
   job: JobWithCompany;
@@ -34,7 +34,6 @@ const sourceLabels: Record<string, string> = {
 };
 const sourceLabel = sourceLabels[job.source_provider] ?? job.source_provider;
 const initials = companyInitials(job.company.name);
-const logoUrl = companyLogoUrl(job.company);
 ---
 
 <article class="job-row">
@@ -43,12 +42,11 @@ const logoUrl = companyLogoUrl(job.company);
       <div class="job-company-cell">
         <span class="company-logo" aria-hidden="true">
           <span class="company-logo-fallback">{initials}</span>
-          {logoUrl && <img src={logoUrl} alt="" loading="lazy" onerror="this.style.display='none'" />}
         </span>
         <div class="job-company-line">
           <span class="job-company-name">{job.company.name}</span>
           <span class="chip stage">{stageLabel(job.company.stage)}</span>
-          {job.is_featured && <span class="chip featured">Featured</span>}
+          {job.is_featured && <span class="chip founder">Talk to the founder</span>}
         </div>
       </div>
       <div>
@@ -79,6 +77,8 @@ const logoUrl = companyLogoUrl(job.company);
     <span>·</span>
     <span>Source: {sourceLabel}</span>
     <span>·</span>
-    <a class="job-referral-link" href={leadSignupPath}>Referral opportunities</a>
+    <a class="job-referral-link" href={leadFormUrl} target="_blank" rel="noopener noreferrer">
+      Referral opportunities
+    </a>
   </div>
 </article>

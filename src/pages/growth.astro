@@ -33,25 +33,12 @@ function formatWeek(key: string) {
   return new Intl.DateTimeFormat("en", { day: "2-digit", month: "short" }).format(new Date(`${key}T00:00:00.000Z`));
 }
 
-function pctChange(current: number, previous: number | null) {
-  if (previous === null) {
-    return null;
-  }
-  if (previous === 0) {
-    return null;
-  }
-  return Math.round(((current - previous) / previous) * 100);
+function differenceLabel(change: number, window: "WoW" | "MoM") {
+  return `${change > 0 ? "+" : ""}${change} ${window}`;
 }
 
-function changeLabel(change: number | null, window: "WoW" | "MoM") {
-  if (change === null) {
-    return `${window} baseline`;
-  }
-  return `${change > 0 ? "+" : ""}${change}% ${window}`;
-}
-
-function changeClass(change: number | null) {
-  if (change === null || change === 0) {
+function changeClass(change: number) {
+  if (change === 0) {
     return "neutral";
   }
   return change > 0 ? "positive" : "negative";
@@ -79,7 +66,6 @@ const weeks: WeekPoint[] = Array.from({ length: 26 }, (_, index) => {
   };
 });
 
-const latestWeek = weeks.at(-1)?.value ?? 0;
 const currentLiveRoles = liveJobs.length;
 
 function snapshotAtOrBefore(daysAgo: number) {
@@ -91,8 +77,21 @@ function snapshotAtOrBefore(daysAgo: number) {
     .at(-1)?.live_role_count ?? null;
 }
 
-const wowChange = pctChange(currentLiveRoles, snapshotAtOrBefore(7));
-const momChange = pctChange(currentLiveRoles, snapshotAtOrBefore(30));
+function liveRoleCountByFirstSeen(daysAgo: number) {
+  const target = new Date();
+  target.setUTCDate(target.getUTCDate() - daysAgo);
+
+  return liveJobs.filter((job) => new Date(job.first_seen_at).getTime() <= target.getTime()).length;
+}
+
+function comparisonCount(daysAgo: number) {
+  return snapshotAtOrBefore(daysAgo) ?? liveRoleCountByFirstSeen(daysAgo);
+}
+
+const lastWeekLiveRoles = comparisonCount(7);
+const lastMonthLiveRoles = comparisonCount(30);
+const wowChange = currentLiveRoles - lastWeekLiveRoles;
+const momChange = currentLiveRoles - lastMonthLiveRoles;
 const coreMetric = currentLiveRoles;
 const maxWeekly = Math.max(...weeks.map((point) => point.value), 1);
 const peakWeek = weeks.reduce((peak, point) => point.value > peak.value ? point : peak, weeks[0]);
@@ -172,26 +171,8 @@ const breakdowns = [
         </p>
       </div>
       <div class="growth-change-stack">
-        <span class={`metric-change ${changeClass(wowChange)}`}>{changeLabel(wowChange, "WoW")}</span>
-        <span class={`metric-change ${changeClass(momChange)}`}>{changeLabel(momChange, "MoM")}</span>
-      </div>
-    </section>
-
-    <section class="metric-grid" aria-label="FDE market benchmarks">
-      <div class="metric-card">
-        <span class="eyebrow">Indeed benchmark</span>
-        <strong>{marketStats.postings_count}</strong>
-        <p>Exact-title Forward Deployed Engineer postings in the maintained Indeed job-description tracker.</p>
-      </div>
-      <div class="metric-card">
-        <span class="eyebrow">This week</span>
-        <strong>{latestWeek}</strong>
-        <p>Live roles on the board with a posted date in the latest observed week.</p>
-      </div>
-      <div class="metric-card">
-        <span class="eyebrow">History</span>
-        <strong>{history.length}</strong>
-        <p>Stored live-role snapshots. WoW and MoM changes unlock once prior snapshots exist.</p>
+        <span class={`metric-change ${changeClass(wowChange)}`}>{differenceLabel(wowChange, "WoW")} · from {lastWeekLiveRoles}</span>
+        <span class={`metric-change ${changeClass(momChange)}`}>{differenceLabel(momChange, "MoM")} · from {lastMonthLiveRoles}</span>
       </div>
     </section>
 
@@ -240,7 +221,7 @@ const breakdowns = [
         The primary metric is <span class="mono">{liveJobs.length}</span> current live roles indexed by this board. It does not add the Indeed benchmark, because that would double-count market signal.
       </p>
       <p>
-        WoW and MoM movement are calculated from <span class="mono">src/content/data/history.json</span>. The first snapshot establishes a baseline; changes will show once at least one weekly and monthly comparison point exists.
+        WoW and MoM movement use stored snapshots from <span class="mono">src/content/data/history.json</span> when a comparison point exists. Until then, the fallback compares current live roles with the subset first seen before each cutoff.
       </p>
       <p>
         The maintained Indeed tracker is displayed separately as a market benchmark for exact-title Forward Deployed Engineer descriptions.

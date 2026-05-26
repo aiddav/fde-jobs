@@ -513,10 +513,12 @@ img {
   text-transform: uppercase;
 }
 
-.chip.featured {
+.chip.featured,
+.chip.founder {
   border-color: var(--ink);
   background: var(--ink);
   color: var(--bg);
+  font-weight: 500;
 }
 
 .chip.closing {
@@ -869,15 +871,6 @@ img {
   grid-area: 1 / 1;
 }
 
-.company-logo img {
-  grid-area: 1 / 1;
-  width: 100%;
-  height: 100%;
-  padding: 3px;
-  background: var(--bg-elev);
-  object-fit: contain;
-}
-
 .job-company-name {
   overflow: hidden;
   color: var(--ink);
@@ -1008,6 +1001,159 @@ img {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     white-space: nowrap;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-shell {
+    width: min(100% - 32px, 1180px);
+  }
+
+  .section-nav {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .page-head {
+    gap: 8px;
+    padding: 28px 0 18px;
+  }
+
+  .page-subhead {
+    font-size: 0.9375rem;
+  }
+
+  .toolbar-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+
+  .filter-dropdown-button,
+  .sort-control,
+  .button-ghost {
+    width: 100%;
+  }
+
+  .sort-control {
+    justify-content: space-between;
+  }
+
+  .sort-control select {
+    min-width: 0;
+  }
+
+  .job-row {
+    min-height: 0;
+    padding: 12px 0;
+  }
+
+  .job-row-main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .job-company-cell {
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .company-logo {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+  }
+
+  .job-company-line {
+    min-height: 30px;
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+
+  .job-company-line .chip.stage {
+    display: none;
+  }
+
+  .chip.founder {
+    padding: 2px 5px;
+    font-size: 0.625rem;
+  }
+
+  .job-title {
+    display: -webkit-box;
+    overflow: hidden;
+    margin-top: 2px;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .job-meta-line {
+    flex-wrap: nowrap;
+    gap: 6px;
+    overflow: hidden;
+    font-size: 0.75rem;
+  }
+
+  .job-meta-line > span:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .job-meta-line .chip.closing {
+    display: none;
+  }
+
+  .job-right {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 0.75rem;
+  }
+
+  .job-comp {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .job-date-line {
+    min-width: max-content;
+  }
+
+  .job-hidden-line,
+  .job-row:hover .job-hidden-line,
+  .job-row:focus-within .job-hidden-line {
+    display: none;
+  }
+
+  .pagination {
+    justify-content: center;
+  }
+
+  .pagination span {
+    order: 3;
+    width: 100%;
+    text-align: center;
+  }
+
+  .growth-change-stack {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bar-row {
+    grid-template-columns: minmax(96px, 1.1fr) minmax(52px, 1.4fr) 34px;
+    gap: 8px;
+  }
+
+  .chart-grid {
+    gap: 22px;
   }
 }
 
@@ -1213,6 +1359,26 @@ img {
   font-size: 0.75rem;
 }
 
+@media (max-width: 700px) {
+  .detail-shell {
+    width: min(100% - 32px, 720px);
+    padding-top: 24px;
+  }
+
+  .comp-block {
+    display: grid;
+  }
+
+  .lead-field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    display: grid;
+    align-items: flex-start;
+  }
+}
+
 @media (max-width: 520px) {
   .ticker-track {
     animation-duration: 35s;
@@ -1236,18 +1402,6 @@ img {
   .filters-dropdown-panel {
     max-height: 72vh;
     overflow-y: auto;
-  }
-
-  .job-company-line,
-  .job-meta-line,
-  .job-hidden-line {
-    flex-wrap: wrap;
-  }
-
-  .job-hidden-line {
-    opacity: 1;
-    transform: none;
-    visibility: visible;
   }
 
   .footer-inner {

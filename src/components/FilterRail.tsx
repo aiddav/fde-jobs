@@ -8,8 +8,8 @@ import {
   filtersToParams,
   parseFilters
 } from "../lib/filters";
-import { leadSignupPath } from "../lib/leadCapture";
-import { companyInitials, companyLogoUrl } from "../lib/logos";
+import { leadFormUrl } from "../lib/leadCapture";
+import { companyInitials } from "../lib/logos";
 import {
   describeLocations,
   formatComp,
@@ -303,13 +303,9 @@ function sourceProviderLabel(source: JobWithCompany["source_provider"]) {
 }
 
 function CompanyLogo({ company }: { company: Company }) {
-  const [broken, setBroken] = useState(false);
-  const logoUrl = broken ? null : companyLogoUrl(company);
-
   return (
     <span class="company-logo" aria-hidden="true">
       <span class="company-logo-fallback">{companyInitials(company.name)}</span>
-      {logoUrl && <img src={logoUrl} alt="" loading="lazy" onError={() => setBroken(true)} />}
     </span>
   );
 }
@@ -329,7 +325,7 @@ function JobRow({ job }: { job: JobWithCompany }) {
           <div class="job-company-line">
             <span class="job-company-name">{job.company.name}</span>
             <span class="chip stage">{stageLabel(job.company.stage)}</span>
-            {job.is_featured && <span class="chip featured">Featured</span>}
+            {job.is_featured && <span class="chip founder">Talk to the founder</span>}
           </div>
         </div>
         <div>
@@ -362,7 +358,9 @@ function JobRow({ job }: { job: JobWithCompany }) {
         <span>·</span>
         <span>Source: {sourceProviderLabel(job.source_provider)}</span>
         <span>·</span>
-        <a class="job-referral-link" href={leadSignupPath}>Referral opportunities</a>
+        <a class="job-referral-link" href={leadFormUrl} target="_blank" rel="noopener noreferrer">
+          Referral opportunities
+        </a>
       </div>
     </article>
   );
@@ -430,10 +428,6 @@ export default function FilterRail({ jobs, companies, addedThisWeek }: Props) {
         <p class="page-subhead">
           <span class="mono">{filteredJobs.length} of {jobs.length} roles · {addedThisWeek} added this week</span>
         </p>
-        <div class="hero-actions">
-          <a class="button-primary" href={leadSignupPath}>Sign up for exclusive FDE job offers</a>
-          <a class="button-secondary" href={`${leadSignupPath}#fields`}>Referral opportunities</a>
-        </div>
       </div>
       <div class="list-toolbar">
         <SearchInput value={filters.q} onInput={(q) => setFilters({ ...filters, q, page: 1 })} />
