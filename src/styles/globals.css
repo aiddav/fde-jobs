@@ -192,7 +192,15 @@ img {
 
 @media (max-width: 640px) {
   .page-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+    line-height: 1.04;
+    text-wrap: balance;
+  }
+}
+
+@media (max-width: 380px) {
+  .page-title {
+    font-size: 1.32rem;
   }
 }
 
@@ -365,6 +373,88 @@ img {
   margin: 0 0 16px;
   font-size: 1rem;
   font-weight: 500;
+}
+
+.source-breakdown-grid {
+  border-top: 1px solid var(--line);
+  margin-top: 34px;
+}
+
+.google-cloud-panel {
+  display: grid;
+  gap: 18px;
+  border-bottom: 1px solid var(--line);
+  padding: 26px 0;
+}
+
+.google-cloud-panel h2 {
+  margin: 6px 0 10px;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.google-cloud-panel p {
+  max-width: 760px;
+  margin: 0 0 10px;
+  color: var(--ink-muted);
+}
+
+.google-cloud-panel a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.google-evidence {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.google-evidence strong {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.google-evidence span {
+  max-width: 220px;
+  color: var(--ink-muted);
+}
+
+.evidence-list {
+  display: grid;
+  border-top: 1px solid var(--line-soft);
+}
+
+.evidence-list a {
+  display: grid;
+  gap: 4px;
+  border-bottom: 1px solid var(--line-soft);
+  padding: 10px 0;
+  text-decoration: none;
+}
+
+.evidence-list a:hover span {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.evidence-list small {
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+}
+
+@media (min-width: 900px) {
+  .google-cloud-panel {
+    grid-template-columns: minmax(0, 1.4fr) 180px minmax(260px, 0.8fr);
+    align-items: start;
+  }
 }
 
 .timeseries-panel {
@@ -643,7 +733,6 @@ img {
 .survey-banner {
   display: flex;
   min-height: 56px;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 12px;
@@ -656,12 +745,15 @@ img {
   text-align: center;
 }
 
-.survey-banner strong {
-  color: var(--banner-ink);
-  font-weight: 600;
+.survey-banner-mobile {
+  display: none;
 }
 
-.survey-banner:hover strong {
+.survey-banner span {
+  color: var(--banner-ink);
+}
+
+.survey-banner:hover span {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
@@ -999,11 +1091,34 @@ img {
 
   .page-head {
     gap: 8px;
-    padding: 28px 0 18px;
+    padding: 24px 0 14px;
   }
 
   .page-subhead {
     font-size: 0.9375rem;
+  }
+
+  .jobs-board .page-subhead,
+  .jobs-board .list-toolbar {
+    display: none;
+  }
+
+  .survey-banner {
+    min-height: 42px;
+    justify-content: center;
+    padding: 8px 12px;
+    font-size: 0.8125rem;
+    line-height: 1.1;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .survey-banner-full {
+    display: none;
+  }
+
+  .survey-banner-mobile {
+    display: inline;
   }
 
   .toolbar-row {
@@ -1031,7 +1146,7 @@ img {
 
   .job-row {
     min-height: 0;
-    padding: 12px 0;
+    padding: 14px 0;
   }
 
   .job-row-main {
@@ -1359,6 +1474,18 @@ img {
   }
 }
 
+@media (max-width: 420px) {
+  .survey-banner {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .survey-banner {
+    font-size: 0.6875rem;
+  }
+}
+
 @media (max-width: 520px) {
   .ticker-track {
     animation-duration: 35s;
@@ -1370,13 +1497,6 @@ img {
 
   .button-secondary {
     width: 100%;
-  }
-
-  .survey-banner {
-    min-height: 48px;
-    justify-content: flex-start;
-    padding: 10px 20px;
-    text-align: left;
   }
 
   .filters-dropdown-panel {

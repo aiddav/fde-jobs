@@ -3271,7 +3271,9 @@
     "headcount_band": "1000+",
     "industry_tags": [
       "cloud",
-      "enterprise ai"
+      "enterprise ai",
+      "big tech / cloud",
+      "genai / applied ai"
     ],
     "ats_provider": null,
     "ats_slug": null,

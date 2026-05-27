@@ -3,8 +3,9 @@ import historyJson from "../content/data/history.json";
 import jobsJson from "../content/data/jobs.json";
 import marketJson from "../content/data/market.json";
 import tickerJson from "../content/data/ticker.json";
-import { companiesSchema, historySchema, jobsSchema, marketStatsSchema, tickerSchema } from "./schema";
-import type { Company, HistoricalSnapshot, Job, MarketStats, TickerItem } from "./types";
+import trackerSourcesJson from "../content/data/tracked-sources.json";
+import { companiesSchema, historySchema, jobsSchema, marketStatsSchema, tickerSchema, trackerSourcesSchema } from "./schema";
+import type { Company, HistoricalSnapshot, Job, MarketStats, TickerItem, TrackerSource } from "./types";
 
 export function getCompanies(): Company[] {
   return companiesSchema.parse(companiesJson).sort((a, b) => a.name.localeCompare(b.name));
@@ -32,6 +33,10 @@ export function getMarketStats(): MarketStats {
 
 export function getHistoricalSnapshots(): HistoricalSnapshot[] {
   return historySchema.parse(historyJson).sort((a, b) => a.date.localeCompare(b.date));
+}
+
+export function getTrackerSources(): TrackerSource[] {
+  return trackerSourcesSchema.parse(trackerSourcesJson).sort((a, b) => a.company_name.localeCompare(b.company_name));
 }
 
 export function companyMap(companies: Company[]) {

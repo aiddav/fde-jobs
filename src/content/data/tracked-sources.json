@@ -1,0 +1,207 @@
+[
+  {
+    "company_slug": "anthropic",
+    "company_name": "Anthropic",
+    "category": "ai_lab",
+    "industries": [
+      "frontier ai",
+      "genai / applied ai"
+    ],
+    "source_type": "ats_api",
+    "source_url": "https://boards-api.greenhouse.io/v1/boards/anthropic/jobs?content=true",
+    "observed_at": "2026-05-27T08:00:00.000Z",
+    "refresh_cadence": "daily",
+    "notes": "Tier 1 Greenhouse source. Exact FDE relevance is gated by the classifier before jobs become live.",
+    "observed_roles": []
+  },
+  {
+    "company_slug": "cohere",
+    "company_name": "Cohere",
+    "category": "ai_lab",
+    "industries": [
+      "frontier ai",
+      "enterprise ai"
+    ],
+    "source_type": "careers_search",
+    "source_url": "https://cohere.com/careers",
+    "observed_at": "2026-05-27T08:00:00.000Z",
+    "refresh_cadence": "weekly",
+    "notes": "Tracked as a priority frontier AI company. Career-page roles are reviewed for field engineering, applied AI, and deployment-engineering language.",
+    "observed_roles": []
+  },
+  {
+    "company_slug": "bonsai-labs",
+    "company_name": "Bonsai Labs",
+    "category": "consulting",
+    "industries": [
+      "ai consulting",
+      "genai / applied ai"
+    ],
+    "source_type": "careers_search",
+    "source_url": "https://bonsai-labs.com/careers",
+    "observed_at": "2026-05-27T08:00:00.000Z",
+    "refresh_cadence": "weekly",
+    "notes": "Tracked as a priority AI deployment consultancy. Current careers copy emphasizes embedded production AI delivery; roles are reviewed manually for FDE-equivalent scope before inclusion.",
+    "observed_roles": []
+  },
+  {
+    "company_slug": "google-cloud",
+    "company_name": "Google Cloud",
+    "category": "big_tech_cloud",
+    "industries": [
+      "cloud",
+      "genai / applied ai"
+    ],
+    "source_type": "manual_override",
+    "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22",
+    "observed_at": "2026-05-27T08:00:00.000Z",
+    "refresh_cadence": "weekly",
+    "notes": "Manual source-backed override because Google Careers search results are dynamic. The observed roles show Google Cloud hiring forward-deployed builders across GenAI, Applied AI, Data and AI, and multiple geographies.",
+    "observed_roles": [
+      {
+        "title": "Forward Deployed Architect, Generative AI, Google Cloud",
+        "locations": [
+          "Beijing",
+          "Shanghai",
+          "China"
+        ],
+        "seniority": "Mid",
+        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22"
+      },
+      {
+        "title": "Staff Forward Deployed Developer, GenAI, Google Cloud",
+        "locations": [
+          "Toronto",
+          "Montreal",
+          "Canada"
+        ],
+        "seniority": "Advanced",
+        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22"
+      },
+      {
+        "title": "Senior Forward Deployed Engineer, Cloud Applied AI",
+        "locations": [
+          "Bengaluru",
+          "India"
+        ],
+        "seniority": "Mid",
+        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22"
+      },
+      {
+        "title": "Forward Deployed Engineer, GenAI, Google Cloud",
+        "locations": [
+          "Sydney",
+          "Docklands",
+          "Australia"
+        ],
+        "seniority": "Mid",
+        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22"
+      },
+      {
+        "title": "Forward Deployed Engineer II, GenAI, Google Cloud",
+        "locations": [
+          "Sunnyvale",
+          "Atlanta",
+          "United States"
+        ],
+        "seniority": "Mid",
+        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22"
+      },
+      {
+        "title": "Forward Deployed Engineer, Applied AI, Google Cloud",
+        "locations": [
+          "New York",
+          "Atlanta",
+          "United States"
+        ],
+        "seniority": "Mid",
+        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22"
+      },
+      {
+        "title": "Staff Forward Deployed Engineer, Developers and Experiences",
+        "locations": [
+          "New York",
+          "Kirkland",
+          "United States"
+        ],
+        "seniority": "Advanced",
+        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22"
+      }
+    ]
+  },
+  {
+    "company_slug": "infinit",
+    "company_name": "INFINIT",
+    "category": "fintech",
+    "industries": [
+      "fintech",
+      "smb operations"
+    ],
+    "source_type": "ats_api",
+    "source_url": "https://api.lever.co/v0/postings/infinit?mode=json",
+    "observed_at": "2026-05-27T08:00:00.000Z",
+    "refresh_cadence": "daily",
+    "notes": "Tier 1 Lever source. Roles are normalized into the repo and deduped by source URL.",
+    "observed_roles": []
+  },
+  {
+    "company_slug": "openai",
+    "company_name": "OpenAI",
+    "category": "ai_lab",
+    "industries": [
+      "frontier ai",
+      "genai / applied ai"
+    ],
+    "source_type": "ats_api",
+    "source_url": "https://api.ashbyhq.com/posting-api/job-board/openai?includeCompensation=true",
+    "observed_at": "2026-05-27T08:00:00.000Z",
+    "refresh_cadence": "daily",
+    "notes": "Tier 1 Ashby source. Forward-deployed, solutions, deployment, and applied AI roles are classifier-gated.",
+    "observed_roles": []
+  },
+  {
+    "company_slug": "palantir",
+    "company_name": "Palantir",
+    "category": "defense",
+    "industries": [
+      "defense",
+      "enterprise software"
+    ],
+    "source_type": "careers_search",
+    "source_url": "https://www.palantir.com/careers/",
+    "observed_at": "2026-05-27T08:00:00.000Z",
+    "refresh_cadence": "weekly",
+    "notes": "Tracked manually because Palantir is the original FDE benchmark and its careers surface is not part of the current Tier 1 adapter set.",
+    "observed_roles": []
+  },
+  {
+    "company_slug": "scale-ai",
+    "company_name": "Scale AI",
+    "category": "startup",
+    "industries": [
+      "data infra",
+      "genai / applied ai"
+    ],
+    "source_type": "careers_search",
+    "source_url": "https://www.scale.com/careers",
+    "observed_at": "2026-05-27T08:00:00.000Z",
+    "refresh_cadence": "weekly",
+    "notes": "Tracked as a priority AI infrastructure company with customer-facing deployment and applied AI roles.",
+    "observed_roles": []
+  },
+  {
+    "company_slug": "towards-ai",
+    "company_name": "Towards AI",
+    "category": "consulting",
+    "industries": [
+      "ai consulting",
+      "financial services"
+    ],
+    "source_type": "custom_scraper",
+    "source_url": "https://towardsai.net/",
+    "observed_at": "2026-05-27T08:00:00.000Z",
+    "refresh_cadence": "weekly",
+    "notes": "Tracked through a custom/manual careers source because public role pages can move outside a standard ATS.",
+    "observed_roles": []
+  }
+]

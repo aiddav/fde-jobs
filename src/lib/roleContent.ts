@@ -242,7 +242,7 @@ export const roleArticles: RoleArticle[] = [
       {
         heading: "Get on the shortlist",
         paragraphs: [
-          "The best opportunities are often not the most visible postings. Join the candidate list if you want to be considered for exclusive FDE job offers, warm referrals, and private searches."
+          "The best opportunities are often not the most visible postings. Join the candidate list if you want to be considered for exclusive FDE job offers, warm referrals, founder introductions where relevant, private events, and practical FDE guides."
         ]
       }
     ],

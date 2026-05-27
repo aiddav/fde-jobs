@@ -2,7 +2,7 @@
 import ThemeToggle from "../components/ThemeToggle";
 import Ticker from "../components/Ticker.astro";
 import "../styles/globals.css";
-import { leadSignupPath } from "../lib/leadCapture";
+import { leadFormUrl } from "../lib/leadCapture";
 import type { MarketStats, PostingStats, TickerItem } from "../lib/types";
 
 type Props = {
@@ -91,10 +91,12 @@ const navItems = [
       showSurveyBanner && (
         <a
           class="survey-banner"
-          href={leadSignupPath}
+          href={leadFormUrl}
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <span>Sign up for exclusive FDE job offers and referral opportunities.</span>
-          <strong>Join the candidate list ↗</strong>
+          <span class="survey-banner-full">Access exclusive FDE jobs, referrals, founder intros, private events, and guides.</span>
+          <span class="survey-banner-mobile">Sign up for exclusive FDE job offers and referrals. ↗</span>
         </a>
       )
     }
@@ -110,7 +112,7 @@ const navItems = [
           <span class="mono">Repo-backed listings · Every update is a commit</span>
           <p>Get warm referrals and private FDE searches before they hit the public board.</p>
         </div>
-        <a class="footer-cta" href={leadSignupPath}>Sign up for exclusive FDE offers</a>
+        <a class="footer-cta" href={leadFormUrl} target="_blank" rel="noopener noreferrer">Sign up for exclusive FDE offers</a>
         <ThemeToggle client:load />
       </div>
     </footer>

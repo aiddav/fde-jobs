@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCompanies, getHistoricalSnapshots, getJobs, getMarketStats, getTickerItems } from "../lib/data";
+import { getCompanies, getHistoricalSnapshots, getJobs, getMarketStats, getTickerItems, getTrackerSources } from "../lib/data";
 import { countAddedThisWeek, enrichJobs } from "../lib/filters";
 import { stageLabel } from "../lib/format";
 
@@ -16,6 +16,7 @@ const liveJobs = enrichJobs(jobs, companies);
 const tickerItems = getTickerItems();
 const marketStats = getMarketStats();
 const history = getHistoricalSnapshots();
+const trackerSources = getTrackerSources();
 const addedThisWeek = countAddedThisWeek(jobs);
 
 function weekStart(date: Date) {
@@ -37,7 +38,10 @@ function differenceLabel(change: number, window: "WoW" | "MoM") {
   return `${change > 0 ? "+" : ""}${change} ${window}`;
 }
 
-function changeClass(change: number) {
+function changeClass(change: number | null) {
+  if (change === null) {
+    return "neutral";
+  }
   if (change === 0) {
     return "neutral";
   }
@@ -74,27 +78,24 @@ function snapshotAtOrBefore(daysAgo: number) {
 
   return history
     .filter((snapshot) => new Date(snapshot.date).getTime() <= target.getTime())
-    .at(-1)?.live_role_count ?? null;
+    .at(-1) ?? null;
 }
 
-function liveRoleCountByFirstSeen(daysAgo: number) {
-  const target = new Date();
-  target.setUTCDate(target.getUTCDate() - daysAgo);
-
-  return liveJobs.filter((job) => new Date(job.first_seen_at).getTime() <= target.getTime()).length;
-}
-
-function comparisonCount(daysAgo: number) {
-  return snapshotAtOrBefore(daysAgo) ?? liveRoleCountByFirstSeen(daysAgo);
-}
-
-const lastWeekLiveRoles = comparisonCount(7);
-const lastMonthLiveRoles = comparisonCount(30);
-const wowChange = currentLiveRoles - lastWeekLiveRoles;
-const momChange = currentLiveRoles - lastMonthLiveRoles;
+const lastWeekSnapshot = snapshotAtOrBefore(7);
+const lastMonthSnapshot = snapshotAtOrBefore(30);
+const wowChange = lastWeekSnapshot ? currentLiveRoles - lastWeekSnapshot.live_role_count : null;
+const momChange = lastMonthSnapshot ? currentLiveRoles - lastMonthSnapshot.live_role_count : null;
 const coreMetric = currentLiveRoles;
 const maxWeekly = Math.max(...weeks.map((point) => point.value), 1);
 const peakWeek = weeks.reduce((peak, point) => point.value > peak.value ? point : peak, weeks[0]);
+
+function comparisonText(change: number | null, window: "WoW" | "MoM", baseline?: number) {
+  if (change === null || baseline === undefined) {
+    return `${window}: tracking from this week`;
+  }
+
+  return `${differenceLabel(change, window)} · from ${baseline}`;
+}
 
 function countBy(values: string[]) {
   const counts = new Map<string, number>();
@@ -145,6 +146,51 @@ const breakdowns = [
     rows: countBy(liveJobs.map((job) => stageLabel(job.company.stage)))
   }
 ];
+
+const sourceRoleEvidence = trackerSources.flatMap((source) => (
+  source.observed_roles.map((role) => ({
+    company_name: source.company_name,
+    category: source.category,
+    industries: source.industries,
+    role
+  }))
+));
+
+const categoryLabels: Record<string, string> = {
+  ai_lab: "AI lab",
+  big_tech_cloud: "Big Tech / Cloud",
+  startup: "Startup",
+  consulting: "Consulting",
+  defense: "Defense / dual-use",
+  fintech: "Fintech",
+  data_infra: "Data infra"
+};
+
+const sourceBreakdowns = [
+  {
+    title: "Company hiring FDEs",
+    rows: countBy(sourceRoleEvidence.map((item) => item.company_name))
+  },
+  {
+    title: "Tracked category",
+    rows: countBy(sourceRoleEvidence.map((item) => categoryLabels[item.category] ?? item.category))
+  },
+  {
+    title: "Product area",
+    rows: countBy(sourceRoleEvidence.flatMap((item) => item.industries))
+  },
+  {
+    title: "Locations from source evidence",
+    rows: countBy(sourceRoleEvidence.flatMap((item) => item.role.locations))
+  }
+].filter((breakdown) => breakdown.rows.length > 0);
+
+const googleCloudSource = trackerSources.find((source) => source.company_slug === "google-cloud");
+const trackedCompanyNames = trackerSources.map((source) => source.company_name).join(", ");
+const lastSourceRefresh = trackerSources
+  .map((source) => source.observed_at)
+  .sort()
+  .at(-1);
 ---
 
 <BaseLayout
@@ -167,14 +213,43 @@ const breakdowns = [
         <span class="eyebrow">Core metric</span>
         <strong>{coreMetric}</strong>
         <p>
-          Current live FDE roles shown on this site, counted directly from the repo-backed listings.
+          Current live FDE roles shown on this site, counted directly from the repo-backed listings currently displayed.
         </p>
       </div>
       <div class="growth-change-stack">
-        <span class={`metric-change ${changeClass(wowChange)}`}>{differenceLabel(wowChange, "WoW")} · from {lastWeekLiveRoles}</span>
-        <span class={`metric-change ${changeClass(momChange)}`}>{differenceLabel(momChange, "MoM")} · from {lastMonthLiveRoles}</span>
+        <span class={`metric-change ${changeClass(wowChange)}`}>{comparisonText(wowChange, "WoW", lastWeekSnapshot?.live_role_count)}</span>
+        <span class={`metric-change ${changeClass(momChange)}`}>{comparisonText(momChange, "MoM", lastMonthSnapshot?.live_role_count)}</span>
       </div>
     </section>
+
+    {
+      googleCloudSource && (
+        <section class="google-cloud-panel">
+          <div>
+            <span class="eyebrow">Big Tech / Cloud signal</span>
+            <h2>Google Cloud is adopting the FDE model</h2>
+            <p>
+              Google Careers now shows forward-deployed roles across Google Cloud GenAI, Applied AI, Data and AI, and developer experience teams. The tracked descriptions position these roles as embedded builders who bridge frontier AI products and production-grade customer deployment.
+            </p>
+            <p class="mono micro">
+              Observed {new Date(googleCloudSource.observed_at).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })} · <a href={googleCloudSource.source_url} target="_blank" rel="noopener noreferrer">Google Careers source</a>
+            </p>
+          </div>
+          <div class="google-evidence">
+            <strong>{googleCloudSource.observed_roles.length}</strong>
+            <span>source-backed Google Cloud roles in the manual tracker</span>
+          </div>
+          <div class="evidence-list">
+            {googleCloudSource.observed_roles.slice(0, 5).map((role) => (
+              <a href={role.source_url} target="_blank" rel="noopener noreferrer">
+                <span>{role.title}</span>
+                <small>{role.locations.join(" · ")}{role.seniority ? ` · ${role.seniority}` : ""}</small>
+              </a>
+            ))}
+          </div>
+        </section>
+      )
+    }
 
     <section class="timeseries-panel" aria-label="Weekly FDE role volume">
       <div class="chart-heading">
@@ -215,8 +290,43 @@ const breakdowns = [
       })}
     </section>
 
+    {
+      sourceBreakdowns.length > 0 && (
+        <section class="chart-grid source-breakdown-grid" aria-label="Source-backed tracker evidence">
+          {sourceBreakdowns.map((breakdown) => {
+            const max = Math.max(...breakdown.rows.map(([, value]) => value), 1);
+            return (
+              <section class="chart-panel">
+                <h2>{breakdown.title}</h2>
+                <div class="bar-chart">
+                  {breakdown.rows.map(([label, value]) => (
+                    <div class="bar-row" style={`--bar:${Math.max(4, Math.round((value / max) * 100))}%`}>
+                      <span>{label}</span>
+                      <div aria-hidden="true"><span></span></div>
+                      <strong>{value}</strong>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            );
+          })}
+        </section>
+      )
+    }
+
     <section class="source-note">
+      <h2>Methodology</h2>
       <p>Source: Indeed Jobs "forward deployed engineer" by date of listing.</p>
+      <p>
+        Current live FDE roles count only live listings displayed on this site. A role counts when the title or description clearly maps to forward-deployed engineering, deployed engineering, AI deployment, applied AI customer engineering, or deeply technical solutions engineering.
+      </p>
+      <p>
+        The tracker follows a stable source registry: {trackedCompanyNames}. Tier 1 ATS sources refresh automatically, custom/manual sources are timestamped in <span class="mono">tracked-sources.json</span>, and Google Cloud is held in the manual override layer with source URLs because Google Careers results are dynamic.
+      </p>
+      <p>
+        Weekly and monthly growth use stored snapshots in <span class="mono">history.json</span>. If no prior snapshot exists, the page says tracking from this week. Jobs are deduped by source URL where possible, otherwise by company, title, and primary location; expired roles are removed only after the configured absence window.
+      </p>
+      {lastSourceRefresh && <p class="mono micro">Source registry last observed {new Date(lastSourceRefresh).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}</p>}
     </section>
   </main>
 </BaseLayout>

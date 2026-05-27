@@ -141,16 +141,44 @@ export const historicalSnapshotSchema = z.object({
   notes: z.string().nullable()
 });
 
+export const trackerSourceSchema = z.object({
+  company_slug: z.string().min(1),
+  company_name: z.string().min(1),
+  category: z.enum([
+    "ai_lab",
+    "big_tech_cloud",
+    "startup",
+    "consulting",
+    "defense",
+    "fintech",
+    "data_infra"
+  ]),
+  industries: z.array(z.string().min(1)).min(1),
+  source_type: z.enum(["ats_api", "careers_search", "custom_scraper", "manual_override"]),
+  source_url: z.string().url(),
+  observed_at: isoDateString,
+  refresh_cadence: z.enum(["daily", "weekly", "manual"]),
+  notes: z.string().min(1),
+  observed_roles: z.array(z.object({
+    title: z.string().min(1),
+    locations: z.array(z.string().min(1)).min(1),
+    seniority: z.string().nullable(),
+    source_url: z.string().url()
+  })).default([])
+});
+
 export const companiesSchema = z.array(companySchema);
 export const jobsSchema = z.array(jobSchema);
 export const tickerSchema = z.array(tickerItemSchema);
 export const historySchema = z.array(historicalSnapshotSchema);
+export const trackerSourcesSchema = z.array(trackerSourceSchema);
 
 export type Company = z.infer<typeof companySchema>;
 export type Job = z.infer<typeof jobSchema>;
 export type TickerItem = z.infer<typeof tickerItemSchema>;
 export type MarketStats = z.infer<typeof marketStatsSchema>;
 export type HistoricalSnapshot = z.infer<typeof historicalSnapshotSchema>;
+export type TrackerSource = z.infer<typeof trackerSourceSchema>;
 export type Stage = z.infer<typeof stageSchema>;
 export type RoleFamily = z.infer<typeof roleFamilySchema>;
 export type LocationType = z.infer<typeof locationTypeSchema>;

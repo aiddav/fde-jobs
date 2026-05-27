@@ -365,6 +365,7 @@ function JobRow({ job }: { job: JobWithCompany }) {
 export default function FilterRail({ jobs, companies, addedThisWeek }: Props) {
   const [filters, setFilters] = useUrlFilters();
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [isCompact, setIsCompact] = useState(false);
   const industryOptions = useMemo(
     () => Array.from(new Set(companies.flatMap((company) => company.industry_tags))).sort(),
     [companies]
@@ -426,9 +427,28 @@ export default function FilterRail({ jobs, companies, addedThisWeek }: Props) {
       ...values.filter((value) => !/visa|parent/i.test(value))
     ].slice(0, 12);
   }, [jobs]);
-  const filteredJobs = useMemo(() => filterJobs(jobs, filters), [jobs, filters]);
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+    const query = window.matchMedia("(max-width: 700px)");
+    const update = () => setIsCompact(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (isCompact && activeFilterCount(filters) > 0) {
+      setFilters({ ...defaultFilters, page: filters.page });
+      setFiltersOpen(false);
+    }
+  }, [filters, isCompact, setFilters]);
+
+  const effectiveFilters = isCompact ? { ...defaultFilters, page: filters.page } : filters;
+  const filteredJobs = useMemo(() => filterJobs(jobs, effectiveFilters), [jobs, effectiveFilters]);
   const totalPages = Math.max(1, Math.ceil(filteredJobs.length / pageSize));
-  const currentPage = Math.min(filters.page, totalPages);
+  const currentPage = Math.min(effectiveFilters.page, totalPages);
   const startIndex = (currentPage - 1) * pageSize;
   const pagedJobs = filteredJobs.slice(startIndex, startIndex + pageSize);
   const active = activeFilterCount(filters);
@@ -455,7 +475,7 @@ export default function FilterRail({ jobs, companies, addedThisWeek }: Props) {
   }, [filters, setFilters, totalPages]);
 
   return (
-    <div>
+    <div class="jobs-board">
       <div class="page-head">
         <div class="eyebrow">Forward deployed engineering roles</div>
         <h1 class="page-title">the fastest growing job in tech</h1>

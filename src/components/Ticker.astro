@@ -9,7 +9,7 @@ type Props = {
   postingStats?: PostingStats;
 };
 
-const { items, openRoleCount, addedThisWeek, marketStats, postingStats } = Astro.props;
+const { items, openRoleCount, marketStats, postingStats } = Astro.props;
 const change = marketStats?.mom_change_pct ?? postingStats?.momChangePct;
 const changeClass = change === null || change === undefined || change === 0 ? "neutral" : change > 0 ? "positive" : "negative";
 const changeText = change === null || change === undefined
@@ -18,7 +18,7 @@ const changeText = change === null || change === undefined
 const computed = [
   {
     label: "STAT",
-    text: `${openRoleCount} CURRENT LIVE FDE ROLES · ${addedThisWeek} ADDED THIS WEEK`,
+    text: `${openRoleCount} CURRENT LIVE FDE ROLES`,
     url: null,
     changeClass: "neutral"
   },

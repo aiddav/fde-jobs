@@ -17,6 +17,7 @@
     "ingest:tier2": "tsx ingest/run-tier2.ts",
     "ingest:tier3": "tsx ingest/run-tier3.ts",
     "expire": "tsx ingest/expire.ts",
+    "snapshot:history": "tsx scripts/snapshot-history.ts",
     "generate:og": "tsx scripts/generate-og.ts",
     "check:css": "tsx scripts/check-css.ts"
   },

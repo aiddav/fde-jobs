@@ -9,6 +9,7 @@ export type {
   RoleFamily,
   Stage,
   TickerItem,
+  TrackerSource,
   TravelBand
 } from "./schema";
 

@@ -2,7 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCompanies, getJobs, getTickerItems } from "../../lib/data";
 import { countAddedThisWeek, enrichJobs } from "../../lib/filters";
-import { leadSignupPath } from "../../lib/leadCapture";
+import { leadFormUrl } from "../../lib/leadCapture";
 import { getRoleArticle, roleArticles, roleHubPath } from "../../lib/roleContent";
 
 export function getStaticPaths() {
@@ -62,9 +62,9 @@ if (!getRoleArticle(article.slug)) {
       <section class="article-cta">
         <span class="eyebrow">Candidate list</span>
         <h2>Sign up for exclusive FDE job opportunities</h2>
-        <p>Get matched to private searches, warm referral paths, and FDE roles that are a better fit than generic job-board alerts.</p>
+        <p>Get matched to exclusive FDE opportunities, referral paths, founder introductions where relevant, private events, and practical guides.</p>
         <div class="cta-row">
-          <a class="button-primary" href={leadSignupPath}>Join the FDE candidate list</a>
+          <a class="button-primary" href={leadFormUrl} target="_blank" rel="noopener noreferrer">Join the FDE candidate list</a>
         </div>
       </section>
     </article>
