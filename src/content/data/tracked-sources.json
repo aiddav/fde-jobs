@@ -54,68 +54,19 @@
     ],
     "source_type": "manual_override",
     "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22",
-    "observed_at": "2026-05-27T08:00:00.000Z",
+    "observed_at": "2026-05-28T08:00:00.000Z",
     "refresh_cadence": "weekly",
-    "notes": "Manual source-backed override because Google Careers search results are dynamic. The observed roles show Google Cloud hiring forward-deployed builders across GenAI, Applied AI, Data and AI, and multiple geographies.",
+    "notes": "Manual source-backed override because Google Careers search results are dynamic. Exact Google FDE roles observed here are also represented as normal live jobs so they flow into core counts and breakdowns.",
     "observed_roles": [
       {
-        "title": "Forward Deployed Architect, Generative AI, Google Cloud",
-        "locations": [
-          "Beijing",
-          "Shanghai",
-          "China"
-        ],
-        "seniority": "Mid",
-        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22"
-      },
-      {
-        "title": "Staff Forward Deployed Developer, GenAI, Google Cloud",
-        "locations": [
-          "Toronto",
-          "Montreal",
-          "Canada"
-        ],
-        "seniority": "Advanced",
-        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22"
-      },
-      {
-        "title": "Senior Forward Deployed Engineer, Cloud Applied AI",
-        "locations": [
-          "Bengaluru",
-          "India"
-        ],
-        "seniority": "Mid",
-        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22"
-      },
-      {
-        "title": "Forward Deployed Engineer, GenAI, Google Cloud",
-        "locations": [
-          "Sydney",
-          "Docklands",
-          "Australia"
-        ],
-        "seniority": "Mid",
-        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22"
-      },
-      {
-        "title": "Forward Deployed Engineer II, GenAI, Google Cloud",
+        "title": "Senior Forward Deployed Engineer, Data and AI",
         "locations": [
           "Sunnyvale",
-          "Atlanta",
+          "Kirkland",
           "United States"
         ],
         "seniority": "Mid",
-        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22"
-      },
-      {
-        "title": "Forward Deployed Engineer, Applied AI, Google Cloud",
-        "locations": [
-          "New York",
-          "Atlanta",
-          "United States"
-        ],
-        "seniority": "Mid",
-        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22"
+        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22Senior%20Forward%20Deployed%20Engineer%2C%20Data%20and%20AI%22"
       },
       {
         "title": "Staff Forward Deployed Engineer, Developers and Experiences",
@@ -125,7 +76,7 @@
           "United States"
         ],
         "seniority": "Advanced",
-        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22"
+        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22Staff%20Forward%20Deployed%20Engineer%2C%20Developers%20and%20Experiences%22"
       }
     ]
   },
