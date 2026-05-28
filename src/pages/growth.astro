@@ -10,6 +10,12 @@ type WeekPoint = {
   value: number;
 };
 
+type Comparison = {
+  baseline: number;
+  change: number;
+  source: "snapshot" | "listing_date";
+};
+
 const companies = getCompanies();
 const jobs = getJobs();
 const liveJobs = enrichJobs(jobs, companies);
@@ -72,29 +78,60 @@ const weeks: WeekPoint[] = Array.from({ length: 26 }, (_, index) => {
 
 const currentLiveRoles = liveJobs.length;
 
-function snapshotAtOrBefore(daysAgo: number) {
+function comparisonTarget(daysAgo: number) {
   const target = new Date();
   target.setUTCDate(target.getUTCDate() - daysAgo);
+  return target;
+}
+
+function snapshotAtOrBefore(daysAgo: number) {
+  const target = comparisonTarget(daysAgo);
 
   return history
     .filter((snapshot) => new Date(snapshot.date).getTime() <= target.getTime())
     .at(-1) ?? null;
 }
 
-const lastWeekSnapshot = snapshotAtOrBefore(7);
-const lastMonthSnapshot = snapshotAtOrBefore(30);
-const wowChange = lastWeekSnapshot ? currentLiveRoles - lastWeekSnapshot.live_role_count : null;
-const momChange = lastMonthSnapshot ? currentLiveRoles - lastMonthSnapshot.live_role_count : null;
+function listingDateBaseline(daysAgo: number) {
+  const target = comparisonTarget(daysAgo).getTime();
+  return liveJobs.filter((job) => new Date(job.posted_at).getTime() <= target).length;
+}
+
+function comparisonFor(daysAgo: number): Comparison {
+  const snapshot = snapshotAtOrBefore(daysAgo);
+
+  if (snapshot) {
+    return {
+      baseline: snapshot.live_role_count,
+      change: currentLiveRoles - snapshot.live_role_count,
+      source: "snapshot"
+    };
+  }
+
+  const baseline = listingDateBaseline(daysAgo);
+  return {
+    baseline,
+    change: currentLiveRoles - baseline,
+    source: "listing_date"
+  };
+}
+
+const wowComparison = comparisonFor(7);
+const momComparison = comparisonFor(30);
 const coreMetric = currentLiveRoles;
 const maxWeekly = Math.max(...weeks.map((point) => point.value), 1);
 const peakWeek = weeks.reduce((peak, point) => point.value > peak.value ? point : peak, weeks[0]);
 
-function comparisonText(change: number | null, window: "WoW" | "MoM", baseline?: number) {
-  if (change === null || baseline === undefined) {
-    return `${window}: tracking from this week`;
+function comparisonText(comparison: Comparison, window: "WoW" | "MoM") {
+  return `${differenceLabel(comparison.change, window)} · from ${comparison.baseline}`;
+}
+
+function comparisonTitle(comparison: Comparison, window: "WoW" | "MoM") {
+  if (comparison.source === "snapshot") {
+    return `${window} comparison uses a stored historical snapshot.`;
   }
 
-  return `${differenceLabel(change, window)} · from ${baseline}`;
+  return `${window} comparison uses listing dates because the tracker does not yet have an older stored snapshot for this window.`;
 }
 
 function countBy(values: string[]) {
@@ -191,12 +228,12 @@ const lastSourceRefresh = trackerSources
         <span class="eyebrow">Core metric</span>
         <strong>{coreMetric}</strong>
         <p>
-          Current live FDE roles shown on this site, counted directly from the repo-backed listings currently displayed.
+          Current live FDE roles tracked across multiple sites
         </p>
       </div>
       <div class="growth-change-stack">
-        <span class={`metric-change ${changeClass(wowChange)}`}>{comparisonText(wowChange, "WoW", lastWeekSnapshot?.live_role_count)}</span>
-        <span class={`metric-change ${changeClass(momChange)}`}>{comparisonText(momChange, "MoM", lastMonthSnapshot?.live_role_count)}</span>
+        <span class={`metric-change ${changeClass(wowComparison.change)}`} title={comparisonTitle(wowComparison, "WoW")}>{comparisonText(wowComparison, "WoW")}</span>
+        <span class={`metric-change ${changeClass(momComparison.change)}`} title={comparisonTitle(momComparison, "MoM")}>{comparisonText(momComparison, "MoM")}</span>
       </div>
     </section>
 
@@ -249,7 +286,7 @@ const lastSourceRefresh = trackerSources
         The tracker follows a stable source registry: {trackedCompanyNames}. Tier 1 ATS sources refresh automatically, and custom/manual sources are timestamped in <span class="mono">tracked-sources.json</span> with source URLs so they can be refreshed consistently.
       </p>
       <p>
-        Weekly and monthly growth use stored snapshots in <span class="mono">history.json</span>. If no prior snapshot exists, the page says tracking from this week. Jobs are deduped by source URL where possible, otherwise by company, title, and primary location; expired roles are removed only after the configured absence window.
+        Weekly and monthly growth use stored snapshots in <span class="mono">history.json</span>. If an older snapshot does not exist yet, the comparison falls back to listing dates from current live roles; as snapshots accumulate, those become the baseline. Jobs are deduped by source URL where possible, otherwise by company, title, and primary location; expired roles are removed only after the configured absence window.
       </p>
       {lastSourceRefresh && <p class="mono micro">Source registry last observed {new Date(lastSourceRefresh).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}</p>}
     </section>
