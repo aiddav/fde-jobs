@@ -201,7 +201,6 @@ const breakdowns = [
   }
 ];
 
-const trackedCompanyNames = trackerSources.map((source) => source.company_name).join(", ");
 const lastSourceRefresh = trackerSources
   .map((source) => source.observed_at)
   .sort()
@@ -279,15 +278,6 @@ const lastSourceRefresh = trackerSources
     <section class="source-note">
       <h2>Methodology</h2>
       <p>Source: Indeed Jobs "forward deployed engineer" by date of listing.</p>
-      <p>
-        Current live FDE roles count only live listings displayed on this site. A role counts when the title or description clearly maps to forward-deployed engineering, deployed engineering, AI deployment, applied AI customer engineering, or deeply technical solutions engineering.
-      </p>
-      <p>
-        The tracker follows a stable source registry: {trackedCompanyNames}. Tier 1 ATS sources refresh automatically, and custom/manual sources are timestamped in <span class="mono">tracked-sources.json</span> with source URLs so they can be refreshed consistently.
-      </p>
-      <p>
-        Weekly and monthly growth use stored snapshots in <span class="mono">history.json</span>. If an older snapshot does not exist yet, the comparison falls back to listing dates from current live roles; as snapshots accumulate, those become the baseline. Jobs are deduped by source URL where possible, otherwise by company, title, and primary location; expired roles are removed only after the configured absence window.
-      </p>
       {lastSourceRefresh && <p class="mono micro">Source registry last observed {new Date(lastSourceRefresh).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}</p>}
     </section>
   </main>
