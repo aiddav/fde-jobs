@@ -1,8 +1,20 @@
 [
   {
-    "date": "2026-05-26T00:00:00.000Z",
-    "live_role_count": 446,
+    "date": "2026-04-29T00:00:00.000Z",
+    "live_role_count": 43,
     "source": "site_live_jobs",
-    "notes": "Baseline snapshot for the current live FDE roles metric. Future weekly snapshots should be appended by ingest or manual update."
+    "notes": "Backfilled from the audited 2026-05-29 live listings using posted_at dates for the initial MoM baseline."
+  },
+  {
+    "date": "2026-05-22T00:00:00.000Z",
+    "live_role_count": 57,
+    "source": "site_live_jobs",
+    "notes": "Backfilled from the audited 2026-05-29 live listings using posted_at dates for the initial WoW baseline."
+  },
+  {
+    "date": "2026-05-29T00:00:00.000Z",
+    "live_role_count": 64,
+    "source": "site_live_jobs",
+    "notes": "Post-audit snapshot after restricting live listings to visible Forward Deployed Engineer / Engineering titles with verified or source-backed application links."
   }
 ]

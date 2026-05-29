@@ -53,30 +53,57 @@
       "genai / applied ai"
     ],
     "source_type": "manual_override",
-    "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22forward%20deployed%22%20%22Google%20Cloud%22",
-    "observed_at": "2026-05-28T08:00:00.000Z",
+    "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=google+field+solution+architect+generative+ai",
+    "observed_at": "2026-05-29T09:00:00.000Z",
     "refresh_cadence": "weekly",
-    "notes": "Manual source-backed override because Google Careers search results are dynamic. Exact Google FDE roles observed here are also represented as normal live jobs so they flow into core counts and breakdowns.",
+    "notes": "Manual source-backed override because Google Careers search results are dynamic. Direct Google Careers result URLs are stored on each live Google Cloud FDE job.",
     "observed_roles": [
       {
-        "title": "Senior Forward Deployed Engineer, Data and AI",
+        "title": "Forward Deployed Engineer, Generative AI, Google Cloud",
         "locations": [
-          "Sunnyvale",
-          "Kirkland",
-          "United States"
+          "Mumbai",
+          "Gurgaon",
+          "India"
         ],
         "seniority": "Mid",
-        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22Senior%20Forward%20Deployed%20Engineer%2C%20Data%20and%20AI%22"
+        "source_url": "https://www.google.com/about/careers/applications/jobs/results/133516617492374214-forward-deployed-engineer-generative-ai-google-cloud?q=google+field+solution+architect+generative+ai"
       },
       {
-        "title": "Staff Forward Deployed Engineer, Developers and Experiences",
+        "title": "Forward Deployed Engineer, Generative AI, Google Cloud",
         "locations": [
-          "New York",
-          "Kirkland",
+          "Mumbai",
+          "India"
+        ],
+        "seniority": "Mid",
+        "source_url": "https://www.google.com/about/careers/applications/jobs/results/96334278157050566-forward-deployed-engineer-generative-ai-google-cloud?q=google+field+solution+architect+generative+ai"
+      },
+      {
+        "title": "Forward Deployed Engineer, Generative AI, Google Cloud (English, Portuguese)",
+        "locations": [
+          "São Paulo",
+          "Brazil"
+        ],
+        "seniority": "Mid",
+        "source_url": "https://www.google.com/about/careers/applications/jobs/results/94931967039939270-forward-deployed-engineer-generative-ai-google-cloud-english-portuguese?q=google+field+solution+architect+generative+ai"
+      },
+      {
+        "title": "Forward Deployed Engineer, Generative AI, Google Cloud (Korean, English)",
+        "locations": [
+          "Seoul",
+          "South Korea"
+        ],
+        "seniority": "Mid",
+        "source_url": "https://www.google.com/about/careers/applications/jobs/results/126581997655990982-forward-deployed-engineer-generative-ai-google-cloud-korean-english?q=google+field+solution+architect+generative+ai"
+      },
+      {
+        "title": "Forward Deployed Engineer IV, GenAI, Google Cloud",
+        "locations": [
+          "San Francisco",
+          "Atlanta",
           "United States"
         ],
-        "seniority": "Advanced",
-        "source_url": "https://www.google.com/about/careers/applications/jobs/results?q=%22Staff%20Forward%20Deployed%20Engineer%2C%20Developers%20and%20Experiences%22"
+        "seniority": "Senior",
+        "source_url": "https://www.google.com/about/careers/applications/jobs/results/143122286080074438-forward-deployed-engineer-iv-genai-google-cloud?company=Google&company=Google+Fiber&company=YouTube&employment_type=FULL_TIME&hl=en_US&jlo=en_US&location=Seattle,+WA,+USA&location=Washington,+USA&q&sort_by=relevance&src=Online/House+Ads/BKWS"
       }
     ]
   },

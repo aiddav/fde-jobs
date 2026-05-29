@@ -4,7 +4,7 @@ const baseHref = import.meta.env.BASE_URL.endsWith("/")
 
 export const leadFormUrl =
   import.meta.env.PUBLIC_LEAD_FORM_URL ??
-  "https://docs.google.com/forms/d/e/1FAIpQLSdu3qisLpSJ67jglnV9onPTNXWl6uav3NbnhArOYy8bMAV1Uw/viewform";
+  "https://forms.gle/HwHsXRCMNJu3ThkW9";
 
 export const leadSignupPath = `${baseHref}sign-up/`;
 

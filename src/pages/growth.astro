@@ -240,7 +240,7 @@ const lastSourceRefresh = trackerSources
       <div class="chart-heading">
         <div>
           <span class="eyebrow">Weekly role volume</span>
-          <h2>Number of FDE-related roles by week</h2>
+          <h2>Number of FDE roles by week</h2>
         </div>
         <span class="mono micro">Peak {peakWeek.value} · Week of {peakWeek.label}</span>
       </div>
@@ -276,8 +276,8 @@ const lastSourceRefresh = trackerSources
     </section>
 
     <section class="source-note">
-      <h2>Methodology</h2>
-      <p>Source: Indeed Jobs "forward deployed engineer" by date of listing.</p>
+      <h2>Source</h2>
+      <p>Source: audited live Forward Deployed Engineer listings across company careers pages and job boards, counted by posting date.</p>
       {lastSourceRefresh && <p class="mono micro">Source registry last observed {new Date(lastSourceRefresh).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}</p>}
     </section>
   </main>
